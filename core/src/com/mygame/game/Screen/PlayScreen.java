@@ -183,12 +183,13 @@ public class PlayScreen implements Screen {
     }
 
     public TiledMap getMap(){
+
         return map;
     }
 
-    
-
-
+    public World getWorld(){
+        return world;
+    }
 
     @Override
     public void pause() {
