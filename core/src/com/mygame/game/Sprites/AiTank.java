@@ -1,5 +1,6 @@
 package com.mygame.game.Sprites;
 
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.PolygonRegion;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
@@ -45,10 +46,17 @@ public class AiTank extends Enemy {
             world.destroyBody(b2body);
             destroyed = true;
             setRegion(new TextureRegion(screen.getAtlas().findRegion("bomb1"),0,0,16,16));
+            stateTime = 0;
         }
         else if(!destroyed) {
             setPosition(b2body.getPosition().x - getWidth() / 2, b2body.getPosition().y - getHeight() / 2);
             setRegion(walkAnimation.getKeyFrame(stateTime, true));
+        }
+    }
+
+    public void draw(Batch batch){
+        if (!destroyed || stateTime <1){
+            super.draw(batch);
         }
     }
 
@@ -77,7 +85,7 @@ public class AiTank extends Enemy {
 
         PolygonShape bodyAi = new PolygonShape();
         Vector2[] vertice = new Vector2[4];
-        vertice[0] = new Vector2(-6,6/*ขนาดของกล่อง*/).scl(1/BattleCITYbygdx.PPM);
+        vertice[0] = new Vector2(-6,6/* 4 Vector create BoxSize */).scl(1/BattleCITYbygdx.PPM);
         vertice[1] = new Vector2(6,6).scl(1/BattleCITYbygdx.PPM);
         vertice[2] = new Vector2(-6,-6).scl(1/BattleCITYbygdx.PPM);
         vertice[3] = new Vector2(6,-6).scl(1/BattleCITYbygdx.PPM);
