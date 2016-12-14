@@ -109,7 +109,7 @@ public class PlayScreen implements Screen {
                 directionx = 0;
             }
 
-        }
+        }else
         if(Gdx.input.isKeyPressed(Input.Keys.RIGHT) && player.b2body.getLinearVelocity().x <=1){
             player.b2body.applyLinearImpulse(new Vector2(0.01f,0), player.b2body.getWorldCenter(), true);
             if(directionx >= 3){
@@ -119,7 +119,7 @@ public class PlayScreen implements Screen {
             if(directiony !=0 ){
                 directiony = 0;
             }
-        }
+        }else
         if(Gdx.input.isKeyPressed(Input.Keys.LEFT) && player.b2body.getLinearVelocity().x >=-1){
             player.b2body.applyLinearImpulse(new Vector2(-0.01f,0), player.b2body.getWorldCenter(), true);
             if(directionx <= -3){
@@ -129,7 +129,7 @@ public class PlayScreen implements Screen {
             if(directiony !=0 ){
                 directiony = 0;
             }
-        }
+        }else
         if(Gdx.input.isKeyPressed(Input.Keys.DOWN) && player.b2body.getLinearVelocity().y >=-1){
             player.b2body.applyLinearImpulse(new Vector2(0,-0.01f), player.b2body.getWorldCenter(), true);
             if(directiony <= -3){
@@ -139,7 +139,7 @@ public class PlayScreen implements Screen {
             if(directionx !=0 ){
                 directionx = 0;
             }
-        }
+        }else
         if(Gdx.input.isKeyJustPressed(Input.Keys.S)){  //shot bullet
 
                 b3 = new Bullet(world,player,directionx);
@@ -147,6 +147,8 @@ public class PlayScreen implements Screen {
                 b3.b2body.applyLinearImpulse(new Vector2(player.b2body.getLinearVelocity().x,player.b2body.getLinearVelocity().y).setLength(2f), player.b2body.getWorldCenter(), true);
         BattleCITYbygdx.manager.get("audio/sound/Tankfire.wav", Sound.class).play();
         }
+        player.b2body.applyLinearImpulse(new Vector2(player.b2body.getLinearVelocity().x*(-0.01f),player.b2body.getLinearVelocity().y*(-0.01f)),player.b2body.getWorldCenter(),true);
+
     }
 
     public void update(float dt){
