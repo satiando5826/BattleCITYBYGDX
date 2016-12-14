@@ -165,6 +165,8 @@ public class PlayScreen implements Screen {
 
         player.update(dt);
         aiTank.update(dt);
+        if(b3 != null)
+        b3.update(dt);
         gamecamera.update();
         renderer.setView(gamecamera);
 

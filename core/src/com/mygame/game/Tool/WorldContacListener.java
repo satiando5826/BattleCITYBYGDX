@@ -3,6 +3,7 @@ package com.mygame.game.Tool;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.physics.box2d.*;
 import com.mygame.game.BattleCITYbygdx;
+import com.mygame.game.Sprites.Bullet;
 import com.mygame.game.Sprites.Enemy;
 import com.mygame.game.Sprites.InteractiveTileObject;
 
@@ -29,9 +30,11 @@ public class WorldContacListener implements ContactListener{
             case BattleCITYbygdx.bullet_BIT | BattleCITYbygdx.enemy_body_BIT :
                 if (fixA.getFilterData().categoryBits == BattleCITYbygdx.enemy_body_BIT){
                     ((Enemy)fixA.getUserData()).hitOnBody();
+                    //((Bullet)fixB.getUserData()).hitOnBody();
                 }else if (fixB.getFilterData().categoryBits == BattleCITYbygdx.enemy_BIT){
-                ((Enemy)fixB.getUserData()).hitOnBody();
-            }
+                    ((Enemy)fixB.getUserData()).hitOnBody();
+              //      ((Bullet)fixA.getUserData()).hitOnBody();
+                }
         }
 
     }
