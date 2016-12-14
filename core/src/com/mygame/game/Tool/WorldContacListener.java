@@ -32,7 +32,7 @@ public class WorldContacListener implements ContactListener{
                 }else if (fixB.getFilterData().categoryBits == BattleCITYbygdx.enemy_BIT){
                 ((Enemy)fixB.getUserData()).hitOnBody();
                 break;
-            }
+            }/*
 
             //case BattleCITYbygdx.enemy_body_BIT | BattleCITYbygdx.brick_BIT:
             case BattleCITYbygdx.enemy_BIT | BattleCITYbygdx.brick_BIT:
@@ -41,6 +41,7 @@ public class WorldContacListener implements ContactListener{
                 }else
                     ((Enemy)fixB.getUserData()).reversVelocity(true,false);
                     break;
+                    */
 
         }
 
