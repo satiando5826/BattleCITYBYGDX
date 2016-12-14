@@ -14,7 +14,7 @@ public class Base extends InteractiveTileObject{
     public Base(PlayScreen screen, Rectangle bounds){
         super(screen,bounds);
         fixture.setUserData(this);
-        setCategoryFilter(BattleCITYbygdx.frame_BIT);
+        setCategoryFilter(BattleCITYbygdx.base_BIT);
     }
 
     @Override

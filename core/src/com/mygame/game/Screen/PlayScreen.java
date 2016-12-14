@@ -91,7 +91,7 @@ public class PlayScreen implements Screen {
         music.setLooping(true);
         music.play();
 
-        aiTank = new AiTank(this,.16f,.16f);
+        aiTank = new AiTank(this,.32f,.32f);
     }
 
     public TextureAtlas getAtlas(){
@@ -149,11 +149,13 @@ public class PlayScreen implements Screen {
 
         if(Gdx.input.isKeyJustPressed(Input.Keys.S)){  //shot bullet
 
+
             b3 = new Bullet(world,player,directionx);
             //   b3.b2body.applyLinearImpulse(new Vector2(directionx,directiony).add(player.b2body.getLinearVelocity().setLength(0.5f)), player.b2body.getWorldCenter(), true);
             b3.b2body.applyLinearImpulse(new Vector2(player.b2body.getLinearVelocity().x,player.b2body.getLinearVelocity().y).setLength(2f), player.b2body.getWorldCenter(), true);
             BattleCITYbygdx.manager.get("audio/sound/Tankfire.wav", Sound.class).play();
             player.b2body.applyLinearImpulse(new Vector2(player.b2body.getLinearVelocity().x*(-0.5f),player.b2body.getLinearVelocity().y*(-0.5f)),player.b2body.getWorldCenter(),true);
+
         }
     }
 

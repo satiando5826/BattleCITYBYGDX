@@ -19,12 +19,12 @@ public class AiTank extends Enemy {
     public AiTank(PlayScreen screen, float x, float y) {
         super(screen, x, y);
         frames = new Array<TextureRegion>();
-        frames.add(new TextureRegion(screen.getAtlas().findRegion("TG1_d1"),19,19,16,16));
-        frames.add(new TextureRegion(screen.getAtlas().findRegion("TG1_d2"),19,1,16,16));
+        frames.add(new TextureRegion(screen.getAtlas().findRegion("TG1_d1"),0,0,16,16));
+        frames.add(new TextureRegion(screen.getAtlas().findRegion("TG1_d2"),0,0,16,16));
         walkAnimation = new com.badlogic.gdx.graphics.g2d.Animation(0.4f,frames);
+        frames.clear();
         stateTime = 0;
         setBounds(getX(),getY(),16/BattleCITYbygdx.PPM,16/BattleCITYbygdx.PPM);
-
     }
 
     public void update(float dt){
