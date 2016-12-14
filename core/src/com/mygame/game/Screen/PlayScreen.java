@@ -3,6 +3,8 @@ package com.mygame.game.Screen;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -48,6 +50,8 @@ public class PlayScreen implements Screen {
     private Bullet b2;
     private Bullet b3;
 
+    private Music music;
+
     private float directionx = 0;  //from last direction input or may be used from vector of tank
     private float directiony = 0;
 
@@ -78,6 +82,10 @@ public class PlayScreen implements Screen {
         player = new Tank(world, this);
 
         world.setContactListener(new WorldContacListener());
+
+        music = BattleCITYbygdx.manager.get("audio/music/Bandicoot1.ogg", Music.class);
+        music.setLooping(true);
+        music.play();
     }
 
     public TextureAtlas getAtlas(){
@@ -137,6 +145,7 @@ public class PlayScreen implements Screen {
                 b3 = new Bullet(world,player,directionx);
              //   b3.b2body.applyLinearImpulse(new Vector2(directionx,directiony).add(player.b2body.getLinearVelocity().setLength(0.5f)), player.b2body.getWorldCenter(), true);
                 b3.b2body.applyLinearImpulse(new Vector2(player.b2body.getLinearVelocity().x,player.b2body.getLinearVelocity().y).setLength(2f), player.b2body.getWorldCenter(), true);
+        BattleCITYbygdx.manager.get("audio/sound/Tankfire.wav", Sound.class).play();
         }
     }
 
