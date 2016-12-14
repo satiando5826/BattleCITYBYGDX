@@ -139,16 +139,16 @@ public class PlayScreen implements Screen {
             if(directionx !=0 ){
                 directionx = 0;
             }
-        }else
+        }else player.b2body.applyLinearImpulse(new Vector2(player.b2body.getLinearVelocity().x*(-0.02f),player.b2body.getLinearVelocity().y*(-0.02f)),player.b2body.getWorldCenter(),true);
+
         if(Gdx.input.isKeyJustPressed(Input.Keys.S)){  //shot bullet
 
-                b3 = new Bullet(world,player,directionx);
-             //   b3.b2body.applyLinearImpulse(new Vector2(directionx,directiony).add(player.b2body.getLinearVelocity().setLength(0.5f)), player.b2body.getWorldCenter(), true);
-                b3.b2body.applyLinearImpulse(new Vector2(player.b2body.getLinearVelocity().x,player.b2body.getLinearVelocity().y).setLength(2f), player.b2body.getWorldCenter(), true);
-        BattleCITYbygdx.manager.get("audio/sound/Tankfire.wav", Sound.class).play();
+            b3 = new Bullet(world,player,directionx);
+            //   b3.b2body.applyLinearImpulse(new Vector2(directionx,directiony).add(player.b2body.getLinearVelocity().setLength(0.5f)), player.b2body.getWorldCenter(), true);
+            b3.b2body.applyLinearImpulse(new Vector2(player.b2body.getLinearVelocity().x,player.b2body.getLinearVelocity().y).setLength(2f), player.b2body.getWorldCenter(), true);
+            BattleCITYbygdx.manager.get("audio/sound/Tankfire.wav", Sound.class).play();
+            player.b2body.applyLinearImpulse(new Vector2(player.b2body.getLinearVelocity().x*(-0.5f),player.b2body.getLinearVelocity().y*(-0.5f)),player.b2body.getWorldCenter(),true);
         }
-        player.b2body.applyLinearImpulse(new Vector2(player.b2body.getLinearVelocity().x*(-0.01f),player.b2body.getLinearVelocity().y*(-0.01f)),player.b2body.getWorldCenter(),true);
-
     }
 
     public void update(float dt){
