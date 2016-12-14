@@ -9,7 +9,7 @@ import com.mygame.game.BattleCITYbygdx;
 public class Bullet {           //Don't khow  this correct
     public World world;
     public Body b2body;
-////////
+    //
 
     ////
     protected Fixture fixture;
