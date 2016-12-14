@@ -17,6 +17,7 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
+import com.badlogic.gdx.physics.box2d.utils.Box2DBuild;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mygame.game.BattleCITYbygdx;
@@ -78,7 +79,6 @@ public class PlayScreen implements Screen {
 
         world = new World(new Vector2(0, 0), true);
         b2dr =  new Box2DDebugRenderer();
-
 
 
         new B2WorldCreator(this);
@@ -183,6 +183,7 @@ public class PlayScreen implements Screen {
 
         //box2ddebug
         b2dr.render(world, gamecamera.combined);
+
 
         game.batch.setProjectionMatrix(gamecamera.combined);
         game.batch.begin();
