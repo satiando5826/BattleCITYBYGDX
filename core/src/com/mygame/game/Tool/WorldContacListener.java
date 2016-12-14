@@ -2,6 +2,8 @@ package com.mygame.game.Tool;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.physics.box2d.*;
+import com.mygame.game.BattleCITYbygdx;
+import com.mygame.game.Sprites.Enemy;
 import com.mygame.game.Sprites.InteractiveTileObject;
 
 /**
@@ -13,6 +15,8 @@ public class WorldContacListener implements ContactListener{
         Fixture fixA = contact.getFixtureA();
         Fixture fixB = contact.getFixtureB();
 
+        int cDef = fixA.getFilterData().categoryBits | fixB.getFilterData().categoryBits;
+
         if(fixA.getUserData() == "Bull" || fixB.getUserData() == "Bull"){
             Fixture bull = fixA.getUserData() == "Bull" ? fixA:fixB;
             Fixture object = bull == fixA ? fixB : fixA;
@@ -21,6 +25,15 @@ public class WorldContacListener implements ContactListener{
                 ((InteractiveTileObject) object.getUserData()).onBullethit();
             }
         }
+        switch (cDef){
+            case BattleCITYbygdx.enemy_body_BIT | BattleCITYbygdx.bullet_BIT:
+                if (fixA.getFilterData().categoryBits == BattleCITYbygdx.enemy_body_BIT){
+                    ((Enemy)fixA.getUserData()).hitOnBody();
+                }else if (fixB.getFilterData().categoryBits == BattleCITYbygdx.enemy_body_BIT){
+                ((Enemy)fixB.getUserData()).hitOnBody();
+            }
+        }
+
     }
 
     @Override

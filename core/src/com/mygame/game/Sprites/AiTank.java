@@ -19,6 +19,11 @@ public class AiTank extends Enemy {
     private float stateTime;
     private com.badlogic.gdx.graphics.g2d.Animation walkAnimation;
     private Array<TextureRegion> frames;
+    private boolean setToDestroy;
+    private boolean destroyed;
+
+
+
     public AiTank(PlayScreen screen, float x, float y) {
         super(screen, x, y);
         frames = new Array<TextureRegion>();
@@ -28,14 +33,23 @@ public class AiTank extends Enemy {
         frames.clear();
         stateTime = 0;
         setBounds(getX(),getY(),16/BattleCITYbygdx.PPM,16/BattleCITYbygdx.PPM);
+        setToDestroy = false;
+        destroyed = false;
     }
 
 
 
     public void update(float dt){
         stateTime += dt;
-        setPosition(b2body.getPosition().x - getWidth()/2, b2body.getPosition().y - getHeight()/2);
-        setRegion(walkAnimation.getKeyFrame(stateTime,true));
+        if (setToDestroy && !destroyed){
+            world.destroyBody(b2body);
+            destroyed = true;
+            setRegion(new TextureRegion(screen.getAtlas().findRegion("bomb1"),0,0,16,16));
+        }
+        else if(!destroyed) {
+            setPosition(b2body.getPosition().x - getWidth() / 2, b2body.getPosition().y - getHeight() / 2);
+            setRegion(walkAnimation.getKeyFrame(stateTime, true));
+        }
     }
 
     @Override
@@ -74,5 +88,10 @@ public class AiTank extends Enemy {
         fdef.filter.categoryBits = BattleCITYbygdx.enemy_body_BIT;
         b2body.createFixture(fdef).setUserData(this);
 
+    }
+
+    @Override
+    public void hitOnBody() {
+        setToDestroy = true;
     }
 }

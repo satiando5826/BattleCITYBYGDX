@@ -103,7 +103,7 @@ public class Tank extends Sprite{
 
     public void defineTank(){
         BodyDef bdef = new BodyDef();
-        bdef.position.set(50 / BattleCITYbygdx.PPM,40/ BattleCITYbygdx.PPM);
+        bdef.position.set(200 / BattleCITYbygdx.PPM,40/ BattleCITYbygdx.PPM);
         bdef.type = BodyDef.BodyType.DynamicBody;
         b2body = world.createBody(bdef);
 
