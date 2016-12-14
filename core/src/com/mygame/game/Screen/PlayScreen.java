@@ -87,7 +87,7 @@ public class PlayScreen implements Screen {
 
         world.setContactListener(new WorldContacListener());
 
-        music = BattleCITYbygdx.manager.get("audio/music/FFXV.ogg", Music.class);
+        music = BattleCITYbygdx.manager.get("audio/music/TouhouV2.ogg", Music.class);
         music.setLooping(true);
         music.play();
 
@@ -149,11 +149,10 @@ public class PlayScreen implements Screen {
 
         if(Gdx.input.isKeyJustPressed(Input.Keys.S)){  //shot bullet
 
-
             b3 = new Bullet(world,player,directionx);
             //   b3.b2body.applyLinearImpulse(new Vector2(directionx,directiony).add(player.b2body.getLinearVelocity().setLength(0.5f)), player.b2body.getWorldCenter(), true);
             b3.b2body.applyLinearImpulse(new Vector2(player.b2body.getLinearVelocity().x,player.b2body.getLinearVelocity().y).setLength(2f), player.b2body.getWorldCenter(), true);
-            BattleCITYbygdx.manager.get("audio/sound/Tankfire.wav", Sound.class).play();
+            BattleCITYbygdx.manager.get("audio/sound/TankfireV2.wav", Sound.class).play();
             player.b2body.applyLinearImpulse(new Vector2(player.b2body.getLinearVelocity().x*(-0.5f),player.b2body.getLinearVelocity().y*(-0.5f)),player.b2body.getWorldCenter(),true);
 
         }
