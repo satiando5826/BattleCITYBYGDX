@@ -26,7 +26,7 @@ public class AiTank extends Enemy {
         stateTime = 0;
         setBounds(getX(),getY(),16/BattleCITYbygdx.PPM,16/BattleCITYbygdx.PPM);
     }
-
+//
     public void update(float dt){
         stateTime += dt;
         setPosition(b2body.getPosition().x - getWidth()/2, b2body.getPosition().y - getHeight()/2);
