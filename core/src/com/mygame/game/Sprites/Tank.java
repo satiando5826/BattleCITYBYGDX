@@ -104,7 +104,7 @@ public class Tank extends Sprite{
 
     public void defineTank(){
         BodyDef bdef = new BodyDef();
-        bdef.position.set(50 / BattleCITYbygdx.PPM,40/ BattleCITYbygdx.PPM);
+        bdef.position.set(200 / BattleCITYbygdx.PPM,40/ BattleCITYbygdx.PPM);
         bdef.type = BodyDef.BodyType.DynamicBody;
         b2body = world.createBody(bdef);
 
@@ -113,7 +113,12 @@ public class Tank extends Sprite{
         shape.setRadius(5.5f/BattleCITYbygdx.PPM);
 
         fdef.filter.categoryBits = BattleCITYbygdx.tank_BIT;
-        fdef.filter.maskBits = BattleCITYbygdx.water_BIT | BattleCITYbygdx.DEFAULT_BIT | BattleCITYbygdx.brick_BIT | BattleCITYbygdx.metal_BIT;
+        fdef.filter.maskBits = BattleCITYbygdx.water_BIT |
+                BattleCITYbygdx.DEFAULT_BIT |
+                BattleCITYbygdx.brick_BIT |
+                BattleCITYbygdx.enemy_body_BIT |
+                BattleCITYbygdx.enemy_BIT |                     //fix don't touch enemy
+                BattleCITYbygdx.metal_BIT;
         fdef.shape = shape;
         b2body.createFixture(fdef);
 

@@ -30,7 +30,8 @@ public class BattleCITYbygdx extends Game {
 	public static final short frame_BIT = 4;
 	public static final short cannonball_BIT = 2;
 	public static final short object_BIT = 4;
-	//
+	public static final short enemy_body_BIT = 128;
+
 
 	public SpriteBatch batch;
 
