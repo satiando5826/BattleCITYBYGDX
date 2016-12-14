@@ -6,13 +6,14 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygame.game.BattleCITYbygdx;
+import com.mygame.game.Screen.PlayScreen;
 
 /**
  * Created by Aspire on 8/12/2559.
  */
 public class Brick extends InteractiveTileObject {
-    public Brick(World world, TiledMap map, Rectangle bounds){
-        super(world,map,bounds);
+    public Brick(PlayScreen screen, Rectangle bounds){
+        super(screen,bounds);
         fixture.setUserData(this);
         setCategoryFilter(BattleCITYbygdx.brick_BIT);
     }

@@ -11,13 +11,14 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygame.game.BattleCITYbygdx;
+import com.mygame.game.Screen.PlayScreen;
 
 /**
  * Created by Aspire on 10/12/2559.
  */
 public class metal extends InteractiveTileObject{
-    public metal(World world, TiledMap map, Rectangle bounds){
-        super(world,map,bounds);
+    public metal(PlayScreen screen, Rectangle bounds){
+        super(screen,bounds);
         fixture.setUserData(this);
         setCategoryFilter(BattleCITYbygdx.metal_BIT);
     }

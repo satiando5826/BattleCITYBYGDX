@@ -21,6 +21,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mygame.game.BattleCITYbygdx;
 import com.mygame.game.Scenes.HUD;
+import com.mygame.game.Sprites.AiTank;
 import com.mygame.game.Sprites.Bullet;
 import com.mygame.game.Sprites.Tank;
 import com.mygame.game.Tool.B2WorldCreator;
@@ -49,8 +50,11 @@ public class PlayScreen implements Screen {
     private Bullet b1;      //only 3 bullet per screen ?
     private Bullet b2;
     private Bullet b3;
+    private AiTank aiTank;
 
     private Music music;
+
+
 
     private float directionx = 0;  //from last direction input or may be used from vector of tank
     private float directiony = 0;
@@ -77,15 +81,17 @@ public class PlayScreen implements Screen {
 
 
 
-        new B2WorldCreator(world, map);
+        new B2WorldCreator(this);
 
-        player = new Tank(world, this);
+        player = new Tank(this);
 
         world.setContactListener(new WorldContacListener());
 
         music = BattleCITYbygdx.manager.get("audio/music/FFXV.ogg", Music.class);
         music.setLooping(true);
         music.play();
+
+        aiTank = new AiTank(this,.16f,.16f);
     }
 
     public TextureAtlas getAtlas(){
@@ -157,7 +163,7 @@ public class PlayScreen implements Screen {
         world.step(1/60f, 6,2);
 
         player.update(dt);
-
+        aiTank.update(dt);
         gamecamera.update();
         renderer.setView(gamecamera);
 
@@ -179,6 +185,7 @@ public class PlayScreen implements Screen {
         game.batch.setProjectionMatrix(gamecamera.combined);
         game.batch.begin();
         player.draw(game.batch);
+        aiTank.draw(game.batch);
         game.batch.end();
 
         game.batch.setProjectionMatrix(hud.Stage.getCamera().combined);
