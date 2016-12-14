@@ -18,7 +18,7 @@
    eJxjYBgFo2AUDAXgjISpoW6oAGcsmBJ1DFjk8JlJjLpRMHgBAG/QBT0=
   </data>
  </layer>
- <layer name="Metal" width="21" height="21" visible="0">
+ <layer name="Metal" width="21" height="21">
   <data encoding="base64" compression="zlib">
    eJxjYBg6QIsAn1gxbGqIkSPXjMHqTnqYOQqoA4hNG6SkoVGAHQzXMKOWv4Za+AAANMMDxw==
   </data>
@@ -72,7 +72,7 @@
   <object id="228" x="80" y="80" width="16" height="16"/>
   <object id="229" x="240" y="64" width="16" height="16"/>
  </objectgroup>
- <objectgroup name="Brick O" visible="0">
+ <objectgroup name="Brick O">
   <object id="61" x="64" y="16" width="16" height="16"/>
   <object id="62" x="64" y="32" width="16" height="16"/>
   <object id="63" x="64" y="48" width="16" height="16"/>
