@@ -31,7 +31,7 @@ public class Bullet {           //Don't khow  this correct
         CircleShape shape = new CircleShape();
         shape.setRadius(1.3f/BattleCITYbygdx.PPM);
         fdef.filter.categoryBits = BattleCITYbygdx.bullet_BIT;
-        fdef.filter.maskBits = BattleCITYbygdx.brick_BIT | BattleCITYbygdx.metal_BIT |BattleCITYbygdx.water_BIT;
+        fdef.filter.maskBits = BattleCITYbygdx.brick_BIT | BattleCITYbygdx.metal_BIT |BattleCITYbygdx.water_BIT | BattleCITYbygdx.enemy_BIT |BattleCITYbygdx.enemy_body_BIT;
 
         fdef.shape = shape;
         b2body.createFixture(fdef);
