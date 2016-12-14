@@ -83,7 +83,7 @@ public class PlayScreen implements Screen {
 
         world.setContactListener(new WorldContacListener());
 
-        music = BattleCITYbygdx.manager.get("audio/music/Bandicoot1.ogg", Music.class);
+        music = BattleCITYbygdx.manager.get("audio/music/FFXV.ogg", Music.class);
         music.setLooping(true);
         music.play();
     }
