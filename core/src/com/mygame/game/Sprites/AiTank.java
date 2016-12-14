@@ -77,10 +77,10 @@ public class AiTank extends Enemy {
 
         PolygonShape bodyAi = new PolygonShape();
         Vector2[] vertice = new Vector2[4];
-        vertice[0] = new Vector2(-4,4/*ขนาดของกล่อง*/).scl(1/BattleCITYbygdx.PPM);
-        vertice[1] = new Vector2(4,4).scl(1/BattleCITYbygdx.PPM);
-        vertice[2] = new Vector2(-4,-4).scl(1/BattleCITYbygdx.PPM);
-        vertice[3] = new Vector2(4,-4).scl(1/BattleCITYbygdx.PPM);
+        vertice[0] = new Vector2(-6,6/*ขนาดของกล่อง*/).scl(1/BattleCITYbygdx.PPM);
+        vertice[1] = new Vector2(6,6).scl(1/BattleCITYbygdx.PPM);
+        vertice[2] = new Vector2(-6,-6).scl(1/BattleCITYbygdx.PPM);
+        vertice[3] = new Vector2(6,-6).scl(1/BattleCITYbygdx.PPM);
         bodyAi.set(vertice);
 
         fdef.shape = bodyAi;

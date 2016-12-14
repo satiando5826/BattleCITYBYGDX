@@ -29,7 +29,7 @@ public class WorldContacListener implements ContactListener{
             case BattleCITYbygdx.enemy_body_BIT | BattleCITYbygdx.bullet_BIT:
                 if (fixA.getFilterData().categoryBits == BattleCITYbygdx.enemy_body_BIT){
                     ((Enemy)fixA.getUserData()).hitOnBody();
-                }else if (fixB.getFilterData().categoryBits == BattleCITYbygdx.enemy_body_BIT){
+                }else if (fixB.getFilterData().categoryBits == BattleCITYbygdx.enemy_BIT){
                 ((Enemy)fixB.getUserData()).hitOnBody();
             }
         }
