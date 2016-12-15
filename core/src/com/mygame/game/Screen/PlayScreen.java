@@ -93,7 +93,7 @@ public class PlayScreen implements Screen {
 
         music = BattleCITYbygdx.manager.get("audio/music/TouhouV2.ogg", Music.class);
         music.setLooping(true);
-        music.play();
+        //        music.play();
 
         aiTank = new AiTank(this,.32f,.32f);
     }
@@ -112,12 +112,15 @@ public class PlayScreen implements Screen {
     public void handleInput(float dt){
 
         if(Gdx.input.isKeyPressed(Input.Keys.C)){
+            music.stop();
             mapstring = "Stage-2.tmx";
             game.setScreen(new PlayScreen((BattleCITYbygdx) game,mapstring));
+
         }
 
         if(Gdx.input.isKeyPressed(Input.Keys.SPACE)){
             intro = false;
+            music.play();
         }
 
         if(Gdx.input.isKeyPressed(Input.Keys.NUM_1)){
