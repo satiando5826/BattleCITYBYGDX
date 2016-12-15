@@ -49,6 +49,7 @@ public class AiTank extends Enemy {
             stateTime = 0;
         }
         else if(!destroyed) {
+            b2body.setLinearVelocity(velocity);
             setPosition(b2body.getPosition().x - getWidth() / 2, b2body.getPosition().y - getHeight() / 2);
             setRegion(walkAnimation.getKeyFrame(stateTime, true));
         }
@@ -81,7 +82,7 @@ public class AiTank extends Enemy {
 
 
         fdef.shape = shape;
-        b2body.createFixture(fdef);
+        b2body.createFixture(fdef).setUserData(this);
 
         PolygonShape bodyAi = new PolygonShape();
         Vector2[] vertice = new Vector2[4];
