@@ -42,30 +42,22 @@ public class WorldContacListener implements ContactListener{
                 }else if (fixB.getFilterData().categoryBits == BattleCITYbygdx.enemy_BIT){
                     Gdx.app.log("B","collision");
                     ((Enemy)fixB.getUserData()).hitOnBody();
-                 //   ((Bullet)fixA.getUserData()).hitOnBody();
                     break;
-                }
-               // else {
-               //     Gdx.app.log("error","collision");
-               //     ((Bullet)fixA.getUserData()).hitOnBody();
-               // }
-                //break;                                                                //ใส่ break แล้วไม่เด้ง
+                }                                                                       //ใส่ break แล้วไม่เด้ง
 
-            case BattleCITYbygdx.enemy_BIT | BattleCITYbygdx.brick_BIT:                  //ชนกับ brick ก่อนถึงเข้าเงื่อนไข
+            case BattleCITYbygdx.enemy_BIT | BattleCITYbygdx.object_BIT:                  //ชนกับ brick ก่อนถึงเข้าเงื่อนไข
                 if (fixA.getFilterData().categoryBits == BattleCITYbygdx.enemy_BIT){
                     ((Enemy)fixA.getUserData()).reversVelocity(true,false);
-                    //stateTime = 1;
-                }else{
-                    //(stateTime==0f) {
-                        ((Enemy) fixB.getUserData()).reversVelocity(true, false);
-                        //stateTime=1;
-                    //}
-                    //else {
-                        //stateTime = 0f;
-                    //}
+                    Gdx.app.log("A","enemy");
 
+
+                }else{
+
+                    ((Enemy) fixB.getUserData()).reversVelocity(true, false);
+                    //Gdx.app.log("B","brick");
                     break;
                 }
+
 
 
         }
