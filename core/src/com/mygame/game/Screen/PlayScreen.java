@@ -18,6 +18,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.physics.box2d.utils.Box2DBuild;
+import com.badlogic.gdx.utils.FloatArray;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mygame.game.BattleCITYbygdx;
@@ -261,10 +262,12 @@ public class PlayScreen implements Screen {
         Gdx.gl.glClearColor(50f,0f,10f,10f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
+        //renderer.render();
+       // b2dr.render(world, gamecamera.combined);
         renderer.render();
 
         //box2ddebug
-        b2dr.render(world, gamecamera.combined);
+
 
 
         game.batch.setProjectionMatrix(gamecamera.combined);
