@@ -48,7 +48,7 @@ public class Bullet extends Sprite{
         fdef.filter.categoryBits = BattleCITYbygdx.bullet_BIT;
         fdef.filter.maskBits = BattleCITYbygdx.brick_BIT |
                 BattleCITYbygdx.metal_BIT |
-                BattleCITYbygdx.water_BIT |
+                //BattleCITYbygdx.water_BIT |                   //fix bullet can get thougth water
                 BattleCITYbygdx.enemy_BIT |
                 BattleCITYbygdx.bullet_BIT|
                 BattleCITYbygdx.frame_BIT|

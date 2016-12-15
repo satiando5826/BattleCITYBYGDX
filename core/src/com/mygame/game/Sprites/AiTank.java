@@ -73,7 +73,8 @@ public class AiTank extends Enemy {
         shape.setRadius(5f/BattleCITYbygdx.PPM);
 
         fdef.filter.categoryBits = BattleCITYbygdx.enemy_BIT;
-        fdef.filter.maskBits = BattleCITYbygdx.water_BIT |
+        fdef.filter.maskBits =
+                BattleCITYbygdx.water_BIT |
                 BattleCITYbygdx.DEFAULT_BIT |
                 BattleCITYbygdx.brick_BIT |
                 BattleCITYbygdx.enemy_BIT |
