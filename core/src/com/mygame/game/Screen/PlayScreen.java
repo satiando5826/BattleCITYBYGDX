@@ -280,7 +280,7 @@ public class PlayScreen implements Screen {
         game.batch.setProjectionMatrix(gamecamera.combined);
         game.batch.begin();
         if(intro){
-            game.batch.draw(texture,0,0,BattleCITYbygdx.V_WIDTH/BattleCITYbygdx.PPM,BattleCITYbygdx.V_HEIGHT/BattleCITYbygdx.PPM);
+            game.batch.draw(texture,0,0,366/BattleCITYbygdx.PPM,430/BattleCITYbygdx.PPM);
         }else {
             player.draw(game.batch);
             //aiTank.draw(game.batch);
