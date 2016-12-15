@@ -116,11 +116,11 @@ public class Tank extends Sprite{
         fdef.filter.maskBits = BattleCITYbygdx.water_BIT |
                 BattleCITYbygdx.DEFAULT_BIT |
                 BattleCITYbygdx.brick_BIT |
-                BattleCITYbygdx.enemy_body_BIT |
+                //BattleCITYbygdx.enemy_body_BIT |              //fix tank each other not die
                 BattleCITYbygdx.enemy_BIT |                     //fix don't touch enemy
                 BattleCITYbygdx.metal_BIT;
         fdef.shape = shape;
-        b2body.createFixture(fdef);
+        b2body.createFixture(fdef).setUserData(this);
 
     }
     public void setCategoryFilter(short filterBIT){

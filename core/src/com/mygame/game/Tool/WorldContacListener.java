@@ -31,17 +31,18 @@ public class WorldContacListener implements ContactListener{
                     ((Enemy) fixA.getUserData()).hitOnBody();
                 } else if (fixB.getFilterData().categoryBits == BattleCITYbygdx.enemy_BIT) {
                     ((Enemy) fixB.getUserData()).hitOnBody();
-                break;}
+                }break;
 
-            /*
-            case BattleCITYbygdx.enemy_body_BIT | BattleCITYbygdx.brick_BIT:
+
+            case BattleCITYbygdx.enemy_BIT | BattleCITYbygdx.metal_BIT:
                 if (fixA.getFilterData().categoryBits == BattleCITYbygdx.enemy_BIT){
-                    ((Enemy)fixA.getUserData()).reversVelocity(true,false);
+                    ((Enemy)fixA.getUserData()).reversVelocity(false,false);
 
-                }else {
-                    ((Enemy) fixB.getUserData()).reversVelocity(true, false);
+                } else{
+                    ((Enemy) fixB.getUserData()).reversVelocity(false, false);
+                    //((Enemy) fixB.getUserData()).hitOnBody();
                     break;
-                }*/
+                }
 
 
         }
