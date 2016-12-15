@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="21" height="21" tilewidth="16" tileheight="16" nextobjectid="48">
  <tileset firstgid="1" name="NES - Battle City - General Sprites" tilewidth="16" tileheight="16" tilecount="400" columns="25">
-  <image source="../../../../OOP Project/DODO/BattleCITYBYGDX/core/assets/NES - Battle City - General Sprites.png" width="400" height="256"/>
+  <image source="NES - Battle City - General Sprites.png" width="400" height="256"/>
  </tileset>
  <layer name="BG" width="21" height="21">
   <data encoding="base64" compression="zlib">
-   eJyLYGRgiBjFo3gUj+JRPIqHIQYAj96ZUg==
+   eJzjZmRg4B7Fo3gUj+JRPIqHIQYAa0QUrQ==
   </data>
  </layer>
  <layer name="Forest" width="21" height="21">
@@ -15,12 +15,12 @@
  </layer>
  <layer name="Water" width="21" height="21">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjILBBWJogEfByAQAL4QHjQ==
+   eJxjYBgFo2AUjILBBZxpgEfByAQAy2UFgA==
   </data>
  </layer>
  <layer name="Metal" width="21" height="21">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIKRAbQGmTmDDQxHfwEAwewAfw==
+   eJxjYBgFo2AUjIKRAbQGmTmjgPYAAJ8kAFU=
   </data>
  </layer>
  <layer name="Brick" width="21" height="21">
