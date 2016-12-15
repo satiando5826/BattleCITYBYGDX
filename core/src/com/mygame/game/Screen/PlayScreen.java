@@ -109,9 +109,8 @@ public class PlayScreen implements Screen {
     public void handleInput(float dt){
 
         if(Gdx.input.isKeyPressed(Input.Keys.C)){
-            map = new TmxMapLoader().load("Stage-3.tmx"); //load the new map
-            renderer.getMap().dispose(); //dispose the old map
-            renderer.setMap(map); //set the map in your renderer
+
+            game.setScreen(new PlayScreen((BattleCITYbygdx) game));
 
 
         }
