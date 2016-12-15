@@ -259,7 +259,7 @@ public class PlayScreen implements Screen {
         gamecamera.update();
         renderer.setView(gamecamera);
 
-        hud.update(dt);
+      //  hud.update(dt);
     }
 
     @Override
