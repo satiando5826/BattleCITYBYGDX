@@ -73,14 +73,16 @@ public class AiTank extends Enemy {
         shape.setRadius(5f/BattleCITYbygdx.PPM);
 
         fdef.filter.categoryBits = BattleCITYbygdx.enemy_BIT;
-        fdef.filter.maskBits = BattleCITYbygdx.water_BIT |
+        fdef.filter.maskBits =
+                BattleCITYbygdx.water_BIT |
                 BattleCITYbygdx.DEFAULT_BIT |
                 BattleCITYbygdx.brick_BIT |
                 BattleCITYbygdx.enemy_BIT |
                 BattleCITYbygdx.OBJECT_BIT |
                 BattleCITYbygdx.bullet_BIT|
                 BattleCITYbygdx.tank_BIT|
-                //BattleCITYbygdx.enemy_body_BIT|
+                        BattleCITYbygdx.frame_BIT|
+                BattleCITYbygdx.enemy_body_BIT|
                 BattleCITYbygdx.metal_BIT;
 
 
@@ -89,10 +91,16 @@ public class AiTank extends Enemy {
 
         PolygonShape bodyAi = new PolygonShape();
         Vector2[] vertice = new Vector2[4];
-        vertice[0] = new Vector2(-6.5f,6.5f/* 4 Vector create BoxSize */).scl(1/BattleCITYbygdx.PPM);
+        vertice[0] = new Vector2(-4f,4f/* 4 Vector create BoxSize */).scl(1/BattleCITYbygdx.PPM);
+        vertice[1] = new Vector2(4f,4f).scl(1/BattleCITYbygdx.PPM);
+        vertice[2] = new Vector2(-4f,-4f).scl(1/BattleCITYbygdx.PPM);
+        vertice[3] = new Vector2(4f,-4f).scl(1/BattleCITYbygdx.PPM);
+        /*
+        vertice[0] = new Vector2(-6.5f,6.5f/* 4 Vector create BoxSize ).scl(1/BattleCITYbygdx.PPM);
         vertice[1] = new Vector2(6.5f,6.5f).scl(1/BattleCITYbygdx.PPM);
         vertice[2] = new Vector2(-6.5f,-6.5f).scl(1/BattleCITYbygdx.PPM);
         vertice[3] = new Vector2(6.5f,-6.5f).scl(1/BattleCITYbygdx.PPM);
+         */
         bodyAi.set(vertice);
 
         fdef.shape = bodyAi;

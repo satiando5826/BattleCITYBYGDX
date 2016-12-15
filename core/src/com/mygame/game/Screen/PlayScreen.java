@@ -60,7 +60,7 @@ public class PlayScreen implements Screen {
     private int firecount=0;
 
     private Music music;
-    public String mapstring = "Stage-1";
+    public String mapstring = "Stage-1.tmx";
 
     public Texture texture;
 
@@ -102,6 +102,7 @@ public class PlayScreen implements Screen {
     }
 
     public TextureAtlas getAtlas(){
+
         return atlas;
     }
 
@@ -114,27 +115,27 @@ public class PlayScreen implements Screen {
 
     public void handleInput(float dt){
 
-        if(Gdx.input.isKeyPressed(Input.Keys.X)){
+        if(Gdx.input.isKeyPressed(Input.Keys.Z)){
             music.stop();
             mapstring = "Stage-1.tmx";
             game.setScreen(new PlayScreen((BattleCITYbygdx) game,mapstring));
 
         }
 
-        if(Gdx.input.isKeyPressed(Input.Keys.C)){
+        if(Gdx.input.isKeyPressed(Input.Keys.X)){
             music.stop();
             mapstring = "Stage-2.tmx";
             game.setScreen(new PlayScreen((BattleCITYbygdx) game,mapstring));
         }
 
-        if(Gdx.input.isKeyPressed(Input.Keys.V)){
+        if(Gdx.input.isKeyPressed(Input.Keys.C)){
             music.stop();
             mapstring = "Stage-3.tmx";
             game.setScreen(new PlayScreen((BattleCITYbygdx) game,mapstring));
 
         }
 
-        if(Gdx.input.isKeyPressed(Input.Keys.B)){
+        if(Gdx.input.isKeyPressed(Input.Keys.V)){
             music.stop();
             mapstring = "Stage-4.tmx";
             game.setScreen(new PlayScreen((BattleCITYbygdx) game,mapstring));

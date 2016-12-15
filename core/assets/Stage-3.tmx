@@ -173,8 +173,8 @@
   <object id="164" x="160" y="32" width="16" height="16"/>
   <object id="165" x="80" y="80" width="16" height="16"/>
   <object id="166" x="256" y="80" width="16" height="16"/>
-  <object id="167" x="144" y="256" width="16" height="16"/>
-  <object id="168" x="160" y="288" width="16" height="16"/>
+  <object id="167" x="144" y="252" width="16" height="16"/>
+  <object id="168" x="160" y="285.333" width="16" height="16"/>
   <object id="169" x="64" y="16" width="16" height="16"/>
  </objectgroup>
 </map>

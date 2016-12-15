@@ -62,11 +62,11 @@ public class WorldContacListener implements ContactListener{
             case BattleCITYbygdx.enemy_body_BIT | BattleCITYbygdx.brick_BIT:                  //ชนกับ brick ก่อนถึงเข้าเงื่อนไข
                 if (fixA.getFilterData().categoryBits == BattleCITYbygdx.enemy_body_BIT){
                     ((Enemy)fixA.getUserData()).reversVelocity(true,false);
-                    Gdx.app.log("A","enemy");
+                    //Gdx.app.log("A","enemy");
 
                 }else{
                     ((Enemy) fixB.getUserData()).reversVelocity(true, false);
-                    Gdx.app.log("B","brick");
+                    //Gdx.app.log("B","brick");
                     break;
                 }
             case BattleCITYbygdx.enemy_body_BIT | BattleCITYbygdx.tank_BIT:
@@ -82,11 +82,21 @@ public class WorldContacListener implements ContactListener{
             case BattleCITYbygdx.enemy_body_BIT | BattleCITYbygdx.water_BIT:
                 if (fixA.getFilterData().categoryBits == BattleCITYbygdx.enemy_body_BIT){
                     ((Enemy)fixA.getUserData()).reversVelocity(true,false);
-                    Gdx.app.log("A","hit water");
+                    //Gdx.app.log("A","hit water");
                     break;
                 }else{
                     ((Enemy) fixB.getUserData()).reversVelocity(true, false);
-                    Gdx.app.log("B","hit water");
+                    //Gdx.app.log("B","hit water");
+                    break;
+                }
+            case BattleCITYbygdx.enemy_body_BIT | BattleCITYbygdx.metal_BIT:
+                if (fixA.getFilterData().categoryBits == BattleCITYbygdx.enemy_body_BIT){
+                    ((Enemy)fixA.getUserData()).reversVelocity(true,false);
+                    //Gdx.app.log("A","hit metal");
+                    break;
+                }else{
+                    ((Enemy) fixB.getUserData()).reversVelocity(true, false);
+                    //Gdx.app.log("B","hit matel");
                     break;
                 }
 
