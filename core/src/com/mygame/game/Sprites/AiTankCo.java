@@ -14,7 +14,7 @@ import com.mygame.game.Screen.PlayScreen;
 /**
  * Created by SatrarinSaejew on 12/15/2016 AD.
  */
-public class AiTank extends Enemy {
+public class AiTankCo extends Enemy {
     private float stateTime;
     private com.badlogic.gdx.graphics.g2d.Animation walkAnimation;
     private Array<TextureRegion> frames;
@@ -23,7 +23,7 @@ public class AiTank extends Enemy {
 
 
 
-    public AiTank(PlayScreen screen, float x, float y) {
+    public AiTankCo(PlayScreen screen, float x, float y) {
         super(screen, x, y);
         frames = new Array<TextureRegion>();
         frames.add(new TextureRegion(screen.getAtlas().findRegion("TG1_L1"),0,0,16,16));

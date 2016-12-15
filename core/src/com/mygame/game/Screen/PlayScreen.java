@@ -9,22 +9,15 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.maps.MapObject;
-import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
-import com.badlogic.gdx.physics.box2d.utils.Box2DBuild;
-import com.badlogic.gdx.utils.FloatArray;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mygame.game.BattleCITYbygdx;
 import com.mygame.game.Scenes.HUD;
-import com.mygame.game.Sprites.AiTank;
 import com.mygame.game.Sprites.Bullet;
 import com.mygame.game.Sprites.Enemy;
 import com.mygame.game.Sprites.Tank;
@@ -56,6 +49,9 @@ public class PlayScreen implements Screen {
     private Bullet b1;      //only 3 bullet per screen ?
     private Bullet b2;
     private Bullet b3;
+    private Bullet ai1;
+    private Bullet ai2;
+    private Bullet ai3;
     //private AiTank aiTank;
     private int firecount=0;
 
@@ -114,9 +110,29 @@ public class PlayScreen implements Screen {
 
     public void handleInput(float dt){
 
+        if(Gdx.input.isKeyPressed(Input.Keys.X)){
+            music.stop();
+            mapstring = "Stage-1.tmx";
+            game.setScreen(new PlayScreen((BattleCITYbygdx) game,mapstring));
+
+        }
+
         if(Gdx.input.isKeyPressed(Input.Keys.C)){
             music.stop();
             mapstring = "Stage-2.tmx";
+            game.setScreen(new PlayScreen((BattleCITYbygdx) game,mapstring));
+        }
+
+        if(Gdx.input.isKeyPressed(Input.Keys.V)){
+            music.stop();
+            mapstring = "Stage-3.tmx";
+            game.setScreen(new PlayScreen((BattleCITYbygdx) game,mapstring));
+
+        }
+
+        if(Gdx.input.isKeyPressed(Input.Keys.B)){
+            music.stop();
+            mapstring = "Stage-4.tmx";
             game.setScreen(new PlayScreen((BattleCITYbygdx) game,mapstring));
 
         }
@@ -258,6 +274,10 @@ public class PlayScreen implements Screen {
         for (Enemy enemy : creator.getAiTankss()){
             enemy.update(dt);
         }
+        for (Enemy enemy : creator.getAiTankssUD()){
+            enemy.update(dt);
+        }
+
         //aiTank.update(dt);
         if(b3 != null)
         b3.update(dt);
@@ -280,13 +300,17 @@ public class PlayScreen implements Screen {
         game.batch.setProjectionMatrix(gamecamera.combined);
         game.batch.begin();
         if(intro){
-            game.batch.draw(texture,0,0,BattleCITYbygdx.V_WIDTH/BattleCITYbygdx.PPM,BattleCITYbygdx.V_HEIGHT/BattleCITYbygdx.PPM);
+            game.batch.draw(texture,0,0,366/BattleCITYbygdx.PPM,430/BattleCITYbygdx.PPM);
         }else {
             player.draw(game.batch);
             //aiTank.draw(game.batch);
             for (Enemy enemy : creator.getAiTankss()){
                 enemy.draw(game.batch);
             }
+            for (Enemy enemy : creator.getAiTankssUD()){
+                enemy.draw(game.batch);
+            }
+
             if(b3 != null)b3.draw(game.batch);
         }
         game.batch.end();

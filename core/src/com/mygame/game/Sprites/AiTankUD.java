@@ -14,7 +14,7 @@ import com.mygame.game.Screen.PlayScreen;
 /**
  * Created by SatrarinSaejew on 12/15/2016 AD.
  */
-public class AiTank extends Enemy {
+public class AiTankUD extends Enemy {
     private float stateTime;
     private com.badlogic.gdx.graphics.g2d.Animation walkAnimation;
     private Array<TextureRegion> frames;
@@ -23,11 +23,11 @@ public class AiTank extends Enemy {
 
 
 
-    public AiTank(PlayScreen screen, float x, float y) {
+    public AiTankUD(PlayScreen screen, float x, float y) {
         super(screen, x, y);
         frames = new Array<TextureRegion>();
-        frames.add(new TextureRegion(screen.getAtlas().findRegion("TG1_L1"),0,0,16,16));
-        frames.add(new TextureRegion(screen.getAtlas().findRegion("TG1_l2"),0,0,16,16));
+        frames.add(new TextureRegion(screen.getAtlas().findRegion("TG1_d1"),0,0,16,16));
+        frames.add(new TextureRegion(screen.getAtlas().findRegion("TG1_d2"),0,0,16,16));
         walkAnimation = new com.badlogic.gdx.graphics.g2d.Animation(0.4f,frames);
         frames.clear();
         stateTime = 0;
@@ -73,13 +73,14 @@ public class AiTank extends Enemy {
         fdef.filter.categoryBits = BattleCITYbygdx.enemy_BIT;
         fdef.filter.maskBits =
                 BattleCITYbygdx.water_BIT |
-                BattleCITYbygdx.DEFAULT_BIT |
+                BattleCITYbygdx.DEFAULT_BIT |           //wall
                 BattleCITYbygdx.brick_BIT |
                 BattleCITYbygdx.enemy_BIT |
                 BattleCITYbygdx.OBJECT_BIT |
                 BattleCITYbygdx.bullet_BIT|
                 BattleCITYbygdx.tank_BIT|
-                BattleCITYbygdx.enemy_body_BIT|
+                //BattleCITYbygdx.enemy_body_BIT|
+                        BattleCITYbygdx.frame_BIT |
                 BattleCITYbygdx.metal_BIT;
 
 

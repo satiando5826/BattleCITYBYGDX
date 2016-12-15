@@ -9,14 +9,14 @@ import com.mygame.game.Screen.PlayScreen;
 /**
  * Created by SatrarinSaejew on 12/14/2016 AD.
  */
-public abstract class Enemy extends Sprite {
+public abstract class EnemyCo extends Sprite {
     protected World world;
     protected PlayScreen screen;
     public Body b2body;
     public Vector2 velocity;
 
 
-    public Enemy(PlayScreen screen, float x, float y){
+    public EnemyCo(PlayScreen screen, float x, float y){
         this.world = screen.getWorld();
         this.screen = screen;
         setPosition(x,y);

@@ -2,7 +2,6 @@ package com.mygame.game.Sprites;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.physics.box2d.*;
@@ -12,7 +11,7 @@ import com.mygame.game.Screen.PlayScreen;
 /**
  * Created by Aspire on 9/12/2559.
  */
-public class Bullet extends Sprite{
+public class BulletAi extends Sprite{
     public World world;
     public Body b2body;
     private float stateTime;
@@ -23,22 +22,22 @@ public class Bullet extends Sprite{
     private float time;
     protected Fixture fixture;
 
-    public Bullet(PlayScreen screen, Tank tank, float direction){
+    public BulletAi(PlayScreen screen, AiTank aiTank, float direction){
        // super(screen.getAtlas().findRegion("zNewdot"));
         this.world = screen.getWorld();
 
         frame = new TextureRegion(screen.getAtlas().findRegion("zDot"),0,0,2,2);
 
-        defineBullet(tank,direction);
+        defineBullet(aiTank,direction);
         setBounds(0,0,2/BattleCITYbygdx.PPM,2/BattleCITYbygdx.PPM);
         setRegion(frame);
     }
 
-    public void defineBullet(Tank tank,float direction){   //position x,y of tank direction enum     troble is how to get tank position
+    public void defineBullet(AiTank aiTank,float direction){   //position x,y of aitank direction enum     troble is how to get aitank position
         BodyDef bdef = new BodyDef();
-        if(tank.b2body.getLinearVelocity().x >0){
-            bdef.position.set(tank.b2body.getPosition().add(1f/BattleCITYbygdx.PPM,0));
-        }else   bdef.position.set(tank.b2body.getPosition().add(-1f/BattleCITYbygdx.PPM,0));
+        if(aiTank.b2body.getLinearVelocity().x >0){
+            bdef.position.set(aiTank.b2body.getPosition().add(1f/BattleCITYbygdx.PPM,0));
+        }else   bdef.position.set(aiTank.b2body.getPosition().add(-1f/BattleCITYbygdx.PPM,0));
         bdef.type = BodyDef.BodyType.DynamicBody;
         b2body = world.createBody(bdef);
 
@@ -85,7 +84,7 @@ public class Bullet extends Sprite{
             firecount = 0;
             System.out.println("reload");
         }
-            if (this.time <= stateTime - 50 * dt)
+            if (this.time <= stateTime - 60 * dt)
             {  if(firecount >0) {
                 firecount--;
                 world.destroyBody(b2body);

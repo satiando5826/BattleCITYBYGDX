@@ -9,19 +9,19 @@ import com.mygame.game.Screen.PlayScreen;
 /**
  * Created by SatrarinSaejew on 12/14/2016 AD.
  */
-public abstract class Enemy extends Sprite {
+public abstract class EnemyUD extends Sprite {
     protected World world;
     protected PlayScreen screen;
     public Body b2body;
-    public Vector2 velocity;
+    public Vector2 velocityUD;
 
 
-    public Enemy(PlayScreen screen, float x, float y){
+    public EnemyUD(PlayScreen screen, float x, float y){
         this.world = screen.getWorld();
         this.screen = screen;
         setPosition(x,y);
         defineEnemy();
-        velocity = new Vector2(1,0);
+        velocityUD = new Vector2(0,1);
     }
 
 
@@ -31,10 +31,10 @@ public abstract class Enemy extends Sprite {
 
     public void reversVelocity(boolean x, boolean y){
         if (x){
-            velocity.x = -velocity.x;
+            velocityUD.x = -velocityUD.x;
         }
         if (y){
-            velocity.y = -velocity.y;
+            velocityUD.y = -velocityUD.y;
         }
     }
 }

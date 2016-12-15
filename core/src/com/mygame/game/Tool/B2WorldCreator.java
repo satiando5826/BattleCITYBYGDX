@@ -18,7 +18,12 @@ public class B2WorldCreator {
         return aiTankss;
     }
 
+    public Array<AiTank> getAiTankssUD() {
+        return aiTankssUD;
+    }
+
     private Array<AiTank> aiTankss;
+    private Array<AiTank> aiTankssUD;
 
     public B2WorldCreator(PlayScreen screen){
         World world = screen.getWorld();
@@ -70,7 +75,7 @@ public class B2WorldCreator {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
             new frame(screen,rect);
-            fdef.filter.categoryBits = BattleCITYbygdx.water_BIT;                  //ชนเหี้ย
+            //fdef.filter.categoryBits = BattleCITYbygdx.water_BIT;                  //ชนเหี้ย
          /*   bdef.type = BodyDef.BodyType.StaticBody;
             bdef.position.set(rect.getX() + rect.getWidth()/2/BattleCITYbygdx.PPM, rect.getY() + rect.getHeight()/2/BattleCITYbygdx.PPM);
 
@@ -89,6 +94,14 @@ public class B2WorldCreator {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
             aiTankss.add(new AiTank(screen, rect.getX()/BattleCITYbygdx.PPM,rect.getY()/BattleCITYbygdx.PPM));
+        }
+
+        //create all aiTankUD
+        aiTankssUD = new Array<AiTank>();
+        for(MapObject object : map.getLayers().get(13).getObjects().getByType(RectangleMapObject.class)){
+            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+
+            aiTankssUD.add(new AiTank(screen, rect.getX()/BattleCITYbygdx.PPM,rect.getY()/BattleCITYbygdx.PPM));
         }
 
     }
