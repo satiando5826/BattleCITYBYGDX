@@ -79,7 +79,7 @@ public class AiTankUD extends Enemy {
                 BattleCITYbygdx.OBJECT_BIT |
                 BattleCITYbygdx.bullet_BIT|
                 BattleCITYbygdx.tank_BIT|
-                BattleCITYbygdx.enemy_body_BIT|
+                //BattleCITYbygdx.enemy_body_BIT|
                         BattleCITYbygdx.frame_BIT |
                 BattleCITYbygdx.metal_BIT;
 

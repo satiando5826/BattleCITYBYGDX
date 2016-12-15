@@ -73,14 +73,13 @@ public class AiTank extends Enemy {
         fdef.filter.categoryBits = BattleCITYbygdx.enemy_BIT;
         fdef.filter.maskBits =
                 BattleCITYbygdx.water_BIT |
-                BattleCITYbygdx.DEFAULT_BIT |                   //wall
+                BattleCITYbygdx.DEFAULT_BIT |
                 BattleCITYbygdx.brick_BIT |
                 BattleCITYbygdx.enemy_BIT |
                 BattleCITYbygdx.OBJECT_BIT |
                 BattleCITYbygdx.bullet_BIT|
                 BattleCITYbygdx.tank_BIT|
                 BattleCITYbygdx.enemy_body_BIT|
-                BattleCITYbygdx.frame_BIT |
                 BattleCITYbygdx.metal_BIT;
 
 
