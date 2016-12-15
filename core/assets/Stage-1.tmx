@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="21" height="21" tilewidth="16" tileheight="16" nextobjectid="263">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="21" height="21" tilewidth="16" tileheight="16" nextobjectid="312">
  <tileset firstgid="1" name="NES - Battle City - General Sprites" tilewidth="16" tileheight="16" tilecount="400" columns="25">
   <image source="NES - Battle City - General Sprites.png" width="400" height="256"/>
  </tileset>
@@ -186,9 +186,13 @@
   <object id="226" x="0" y="0" height="336"/>
  </objectgroup>
  <objectgroup name="Enemy O">
-  <object id="259" x="112" y="16" width="16" height="16"/>
-  <object id="260" x="160" y="176" width="16" height="16"/>
+  <object id="259" x="125.697" y="30.6757" width="10.1297" height="9.15136"/>
+  <object id="260" x="-244.07" y="-155.67" width="8.17298" height="8.17298"/>
   <object id="261" x="240" y="240" width="16" height="16"/>
-  <object id="262" x="176" y="144" width="16" height="16"/>
+  <object id="262" x="166.216" y="145.957" width="8.17298" height="9.15136"/>
+ </objectgroup>
+ <objectgroup name="Enemy UD">
+  <object id="272" x="85.1189" y="248.508" width="12.7189" height="9.78378"/>
+  <object id="284" x="42.0702" y="63.5946" width="9.78378" height="7.82702"/>
  </objectgroup>
 </map>
