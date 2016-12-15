@@ -99,24 +99,6 @@ public class AiTank extends Enemy {
         b2body.createFixture(fdef).setUserData(this);
 
 
-        ///////
-        /*
-
-        PolygonShape bodyAihit = new PolygonShape();
-        Vector2[] vertice2 = new Vector2[4];
-        vertice2[0] = new Vector2(-6,6/* 4 Vector create BoxSize ).scl(1/BattleCITYbygdx.PPM);
-        vertice2[1] = new Vector2(6,6).scl(1/BattleCITYbygdx.PPM);
-        vertice2[2] = new Vector2(-6,-6).scl(1/BattleCITYbygdx.PPM);
-        vertice2[3] = new Vector2(6,-6).scl(1/BattleCITYbygdx.PPM);
-        bodyAihit.set(vertice);
-
-        fdef.shape = bodyAihit;
-        fdef.restitution = 0.5f;
-        fdef.filter.categoryBits = BattleCITYbygdx.enemy_body2_BIT;
-        b2body.createFixture(fdef).setUserData(this);
-
-        */
-
     }
 
     @Override
