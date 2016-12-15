@@ -3,9 +3,10 @@ package com.mygame.game.Tool;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.physics.box2d.*;
 import com.mygame.game.BattleCITYbygdx;
-import com.mygame.game.Sprites.Bullet;
-import com.mygame.game.Sprites.Enemy;
-import com.mygame.game.Sprites.InteractiveTileObject;
+import com.mygame.game.Sprites.*;
+
+import static com.mygame.game.BattleCITYbygdx.base_BIT;
+import static com.mygame.game.BattleCITYbygdx.tank_BIT;
 
 /**
  * Created by Aspire on 13/12/2559.
@@ -42,8 +43,24 @@ public class WorldContacListener implements ContactListener{
                 }else if (fixB.getFilterData().categoryBits == BattleCITYbygdx.enemy_BIT){
                     Gdx.app.log("B","collision");
                     ((Enemy)fixB.getUserData()).hitOnBody();
+                 //   ((Bullet)fixA.getUserData()).hitOnBody();
                     break;
-                }                                                                       //ใส่ break แล้วไม่เด้ง
+                }  break;
+            case BattleCITYbygdx.tank_BIT | BattleCITYbygdx.bullet_BIT:
+                if(fixA.getFilterData().categoryBits == tank_BIT)
+                    ((Tank)fixA.getUserData()).hit();
+                else ((Tank)fixB.getUserData()).hit();
+                break;
+
+            case BattleCITYbygdx.base_BIT | BattleCITYbygdx.bullet_BIT:
+                if(fixA.getFilterData().categoryBits == base_BIT)
+                    ((Base)fixA.getUserData()).onBullethit();
+                else ((Base)fixB.getUserData()).onBullethit();
+               // else {
+               //     Gdx.app.log("error","collision");
+               //     ((Bullet)fixA.getUserData()).hitOnBody();
+               // }
+                //break;                                                                //ใส่ break แล้วไม่เด้ง
 
             case BattleCITYbygdx.enemy_BIT | BattleCITYbygdx.object_BIT:                  //ชนกับ brick ก่อนถึงเข้าเงื่อนไข
                 if (fixA.getFilterData().categoryBits == BattleCITYbygdx.enemy_BIT){
@@ -57,7 +74,6 @@ public class WorldContacListener implements ContactListener{
                     //Gdx.app.log("B","brick");
                     break;
                 }
-
 
 
         }
