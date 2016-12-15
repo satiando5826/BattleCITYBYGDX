@@ -26,6 +26,7 @@ import com.mygame.game.BattleCITYbygdx;
 import com.mygame.game.Scenes.HUD;
 import com.mygame.game.Sprites.AiTank;
 import com.mygame.game.Sprites.Bullet;
+import com.mygame.game.Sprites.Enemy;
 import com.mygame.game.Sprites.Tank;
 import com.mygame.game.Tool.B2WorldCreator;
 import com.mygame.game.Tool.WorldContacListener;
@@ -49,12 +50,13 @@ public class PlayScreen implements Screen {
 
     private World world;
     private Box2DDebugRenderer b2dr;
+    private B2WorldCreator creator;
 
     private Tank player;
     private Bullet b1;      //only 3 bullet per screen ?
     private Bullet b2;
     private Bullet b3;
-    private AiTank aiTank;
+    //private AiTank aiTank;
     private int firecount=0;
 
     private Music music;
@@ -86,7 +88,7 @@ public class PlayScreen implements Screen {
         b2dr =  new Box2DDebugRenderer();
 
 
-        new B2WorldCreator(this);
+        creator = new B2WorldCreator(this);
 
         player = new Tank(this);
 
@@ -96,7 +98,7 @@ public class PlayScreen implements Screen {
         music.setLooping(true);
         //        music.play();
 
-        aiTank = new AiTank(this,.32f,.32f);
+        //aiTank = new AiTank(this,.32f,.32f);
     }
 
     public TextureAtlas getAtlas(){
@@ -253,7 +255,10 @@ public class PlayScreen implements Screen {
         world.step(1/60f, 6,2);
 
         player.update(dt);
-        aiTank.update(dt);
+        for (Enemy enemy : creator.getAiTankss()){
+            enemy.update(dt);
+        }
+        //aiTank.update(dt);
         if(b3 != null)
         b3.update(dt);
         gamecamera.update();
@@ -278,7 +283,10 @@ public class PlayScreen implements Screen {
             game.batch.draw(texture,0,0,800/BattleCITYbygdx.PPM,600/BattleCITYbygdx.PPM);
         }else {
             player.draw(game.batch);
-            aiTank.draw(game.batch);
+            //aiTank.draw(game.batch);
+            for (Enemy enemy : creator.getAiTankss()){
+                enemy.draw(game.batch);
+            }
             if(b3 != null)b3.draw(game.batch);
         }
         game.batch.end();

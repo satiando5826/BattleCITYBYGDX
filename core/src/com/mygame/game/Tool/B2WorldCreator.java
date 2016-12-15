@@ -5,6 +5,7 @@ import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.physics.box2d.*;
+import com.badlogic.gdx.utils.Array;
 import com.mygame.game.BattleCITYbygdx;
 import com.mygame.game.Screen.PlayScreen;
 import com.mygame.game.Sprites.*;
@@ -13,6 +14,12 @@ import com.mygame.game.Sprites.*;
  * Created by Aspire on 8/12/2559.
  */
 public class B2WorldCreator {
+    public Array<AiTank> getAiTankss() {
+        return aiTankss;
+    }
+
+    private Array<AiTank> aiTankss;
+
     public B2WorldCreator(PlayScreen screen){
         World world = screen.getWorld();
         TiledMap map = screen.getMap();
@@ -75,5 +82,14 @@ public class B2WorldCreator {
             body.createFixture(fdef);
             */
         }
+
+        //create all aiTank
+        aiTankss = new Array<AiTank>();
+        for(MapObject object : map.getLayers().get(12).getObjects().getByType(RectangleMapObject.class)){
+            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+
+            aiTankss.add(new AiTank(screen, rect.getX()/BattleCITYbygdx.PPM,rect.getY()/BattleCITYbygdx.PPM));
+        }
+
     }
 }
