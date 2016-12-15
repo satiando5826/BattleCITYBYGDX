@@ -10,6 +10,8 @@ import com.mygame.game.Sprites.InteractiveTileObject;
  * Created by Aspire on 13/12/2559.
  */
 public class WorldContacListener implements ContactListener{
+    private float stateTime=0f;
+
     @Override
     public void beginContact(Contact contact) {
         Fixture fixA = contact.getFixtureA();
@@ -31,16 +33,24 @@ public class WorldContacListener implements ContactListener{
                     ((Enemy) fixA.getUserData()).hitOnBody();
                 } else if (fixB.getFilterData().categoryBits == BattleCITYbygdx.enemy_BIT) {
                     ((Enemy) fixB.getUserData()).hitOnBody();
-                }break;
+                }
+                /*else if (fixA.getFilterData().categoryBits == BattleCITYbygdx.brick_BIT){
+                    ((Enemy) fixB.getUserData()).reversVelocity(false,true);
+                }*/break;
 
 
-            case BattleCITYbygdx.enemy_BIT | BattleCITYbygdx.metal_BIT:
+            case BattleCITYbygdx.enemy_BIT | BattleCITYbygdx.brick_BIT:                  //ชนกับ brick ก่อนถึงเข้าเงื่อนไข
                 if (fixA.getFilterData().categoryBits == BattleCITYbygdx.enemy_BIT){
-                    ((Enemy)fixA.getUserData()).reversVelocity(false,false);
+                    ((Enemy)fixA.getUserData()).reversVelocity(true,false);
+                }else{
+                    //if(stateTime==0f) {
+                        ((Enemy) fixB.getUserData()).reversVelocity(true, false);
+                        //stateTime=1;
+                    //}
+                    //else {
+                        //stateTime = 0f;
+                    //}
 
-                } else{
-                    ((Enemy) fixB.getUserData()).reversVelocity(false, false);
-                    //((Enemy) fixB.getUserData()).hitOnBody();
                     break;
                 }
 

@@ -64,7 +64,7 @@ public class AiTank extends Enemy {
     @Override
     protected void defineEnemy() {
         BodyDef bdef = new BodyDef();
-        bdef.position.set(getX(),getY());
+        bdef.position.set(getX()+10/BattleCITYbygdx.PPM,getY());
         bdef.type = BodyDef.BodyType.DynamicBody;
         b2body = world.createBody(bdef);
 
@@ -99,10 +99,11 @@ public class AiTank extends Enemy {
 
 
         ///////
+        /*
 
         PolygonShape bodyAihit = new PolygonShape();
         Vector2[] vertice2 = new Vector2[4];
-        vertice2[0] = new Vector2(-6,6/* 4 Vector create BoxSize */).scl(1/BattleCITYbygdx.PPM);
+        vertice2[0] = new Vector2(-6,6/* 4 Vector create BoxSize ).scl(1/BattleCITYbygdx.PPM);
         vertice2[1] = new Vector2(6,6).scl(1/BattleCITYbygdx.PPM);
         vertice2[2] = new Vector2(-6,-6).scl(1/BattleCITYbygdx.PPM);
         vertice2[3] = new Vector2(6,-6).scl(1/BattleCITYbygdx.PPM);
@@ -112,6 +113,8 @@ public class AiTank extends Enemy {
         fdef.restitution = 0.5f;
         fdef.filter.categoryBits = BattleCITYbygdx.enemy_body2_BIT;
         b2body.createFixture(fdef).setUserData(this);
+
+        */
 
     }
 
