@@ -12,8 +12,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.mygame.game.Screen.PlayScreen;
 
 public class BattleCITYbygdx extends Game {
-	public static	final  int V_WIDTH = 320;
-	public static	final  int V_HEIGHT = 360;
+	public static	final  int V_WIDTH = 400;
+	public static	final  int V_HEIGHT = 470;
 	public static	final  float PPM = 100;
 
 	public static final short DEFAULT_BIT = 1;
