@@ -67,7 +67,7 @@ public class PlayScreen implements Screen {
 
 
     public PlayScreen(BattleCITYbygdx game,String mapstring){
-        atlas = new TextureAtlas("Tank.pack");
+        atlas = new TextureAtlas("tankv2.pack");
         this.game = game;
 
         texture = new Texture("NES - Battle City - General Sprites.png");
@@ -236,7 +236,7 @@ public class PlayScreen implements Screen {
 
         if(Gdx.input.isKeyJustPressed(Input.Keys.S)){  //shot bullet
             if(firecount <1) {
-                b3 = new Bullet(world, player, directionx);
+                b3 = new Bullet(this, player, directionx);
                 //   b3.b2body.applyLinearImpulse(new Vector2(directionx,directiony).add(player.b2body.getLinearVelocity().setLength(0.5f)), player.b2body.getWorldCenter(), true);
                 b3.b2body.applyLinearImpulse(new Vector2(player.b2body.getLinearVelocity().x, player.b2body.getLinearVelocity().y).setLength(2f), player.b2body.getWorldCenter(), true);
                 //player.fire();
@@ -268,15 +268,10 @@ public class PlayScreen implements Screen {
 
         Gdx.gl.glClearColor(50f,0f,10f,10f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
         //renderer.render();
        // b2dr.render(world, gamecamera.combined);
         renderer.render();
-
         //box2ddebug
-
-
-
         game.batch.setProjectionMatrix(gamecamera.combined);
         game.batch.begin();
         if(intro){
@@ -284,6 +279,7 @@ public class PlayScreen implements Screen {
         }else {
             player.draw(game.batch);
             aiTank.draw(game.batch);
+            if(b3 != null)b3.draw(game.batch);
         }
         game.batch.end();
 

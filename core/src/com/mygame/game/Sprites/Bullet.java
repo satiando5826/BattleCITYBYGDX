@@ -2,10 +2,12 @@ package com.mygame.game.Sprites;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.physics.box2d.*;
 import com.mygame.game.BattleCITYbygdx;
+import com.mygame.game.Screen.PlayScreen;
 
 /**
  * Created by Aspire on 9/12/2559.
@@ -17,13 +19,19 @@ public class Bullet extends Sprite{           //Don't khow  this correct
     private boolean setToDestroy;
     private boolean destroyed;
     public int firecount=0;
-
+    public TextureRegion frame;
     private float time;
     protected Fixture fixture;
 
-    public Bullet(World world, Tank tank, float direction){
-        this.world = world;
+    public Bullet(PlayScreen screen, Tank tank, float direction){
+       // super(screen.getAtlas().findRegion("zNewdot"));
+        this.world = screen.getWorld();
+
+        frame = new TextureRegion(screen.getAtlas().findRegion("zDot"),0,0,2,2);
+
         defineBullet(tank,direction);
+        setBounds(0,0,2/BattleCITYbygdx.PPM,2/BattleCITYbygdx.PPM);
+        setRegion(frame);
     }
 
     public void defineBullet(Tank tank,float direction){   //position x,y of tank direction enum     troble is how to get tank position
@@ -82,6 +90,8 @@ public class Bullet extends Sprite{           //Don't khow  this correct
                 // Gdx.app.log("A", "collision");
                 }
             }
+        setPosition(b2body.getPosition().x - getWidth()/2,b2body.getPosition().y - getHeight()/2);
+        setRegion(frame);
         //b2body.destroyFixture(fixture);
         //b2body.setLinearVelocity(0,0);
     //    if (setToDestroy && !destroyed){
