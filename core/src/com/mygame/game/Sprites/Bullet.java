@@ -68,10 +68,10 @@ public class Bullet extends Sprite{           //Don't khow  this correct
     }
     public void update(float dt) {
         stateTime += dt;
-        if(Gdx.input.isKeyPressed(Input.Keys.S)) {
+        if(Gdx.input.isKeyJustPressed(Input.Keys.S)) {
             firecount += 1;
         }
-        if(Gdx.input.isKeyPressed(Input.Keys.R)) {
+        if(Gdx.input.isKeyJustPressed(Input.Keys.R)) {
             firecount = 0;
             System.out.println("reload");
         }

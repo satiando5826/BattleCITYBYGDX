@@ -61,7 +61,7 @@ public class WorldContacListener implements ContactListener{
                         //stateTime=1;
                     //}
                     //else {
-                      //  stateTime = 0f;
+                        //stateTime = 0f;
                     //}
 
                     break;
