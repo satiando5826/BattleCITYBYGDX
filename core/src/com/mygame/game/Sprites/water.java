@@ -14,7 +14,7 @@ public class water extends InteractiveTileObject {
     public water(PlayScreen screen, Rectangle bounds) {
         super(screen, bounds);
         fixture.setUserData(this);
-        setCategoryFilter(BattleCITYbygdx.water_BIT);
+        //setCategoryFilter(BattleCITYbygdx.water_BIT);
     }
 
     @Override

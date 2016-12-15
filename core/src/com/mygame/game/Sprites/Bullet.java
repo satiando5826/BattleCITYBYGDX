@@ -48,7 +48,7 @@ public class Bullet extends Sprite{
         fdef.filter.categoryBits = BattleCITYbygdx.bullet_BIT;
         fdef.filter.maskBits = BattleCITYbygdx.brick_BIT |
                 BattleCITYbygdx.metal_BIT |
-                //BattleCITYbygdx.water_BIT |                   //fix bullet can get thougth water
+                BattleCITYbygdx.water_BIT |
                 BattleCITYbygdx.enemy_BIT |
                 BattleCITYbygdx.bullet_BIT|
                 BattleCITYbygdx.frame_BIT|
@@ -85,7 +85,7 @@ public class Bullet extends Sprite{
             firecount = 0;
             System.out.println("reload");
         }
-            if (this.time <= stateTime - 50 * dt)
+            if (this.time <= stateTime - 60 * dt)
             {  if(firecount >0) {
                 firecount--;
                 world.destroyBody(b2body);

@@ -1,6 +1,7 @@
 package com.mygame.game.Sprites;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.PolygonRegion;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.BodyDef;
@@ -10,6 +11,7 @@ import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.utils.Array;
 import com.mygame.game.BattleCITYbygdx;
 import com.mygame.game.Screen.PlayScreen;
+import javafx.animation.Animation;
 
 /**
  * Created by SatrarinSaejew on 12/15/2016 AD.
@@ -26,8 +28,8 @@ public class AiTank extends Enemy {
     public AiTank(PlayScreen screen, float x, float y) {
         super(screen, x, y);
         frames = new Array<TextureRegion>();
-        frames.add(new TextureRegion(screen.getAtlas().findRegion("TG1_L1"),0,0,16,16));
-        frames.add(new TextureRegion(screen.getAtlas().findRegion("TG1_l2"),0,0,16,16));
+        frames.add(new TextureRegion(screen.getAtlas().findRegion("TG1_d1"),0,0,16,16));
+        frames.add(new TextureRegion(screen.getAtlas().findRegion("TG1_d2"),0,0,16,16));
         walkAnimation = new com.badlogic.gdx.graphics.g2d.Animation(0.4f,frames);
         frames.clear();
         stateTime = 0;
@@ -71,15 +73,14 @@ public class AiTank extends Enemy {
         shape.setRadius(5f/BattleCITYbygdx.PPM);
 
         fdef.filter.categoryBits = BattleCITYbygdx.enemy_BIT;
-        fdef.filter.maskBits =
-                BattleCITYbygdx.water_BIT |
+        fdef.filter.maskBits = BattleCITYbygdx.water_BIT |
                 BattleCITYbygdx.DEFAULT_BIT |
                 BattleCITYbygdx.brick_BIT |
                 BattleCITYbygdx.enemy_BIT |
                 BattleCITYbygdx.OBJECT_BIT |
                 BattleCITYbygdx.bullet_BIT|
                 BattleCITYbygdx.tank_BIT|
-                BattleCITYbygdx.enemy_body_BIT|
+                //BattleCITYbygdx.enemy_body_BIT|
                 BattleCITYbygdx.metal_BIT;
 
 
