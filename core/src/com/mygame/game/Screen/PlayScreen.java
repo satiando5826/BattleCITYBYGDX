@@ -52,6 +52,7 @@ public class PlayScreen implements Screen {
     private Bullet b2;
     private Bullet b3;
     private AiTank aiTank;
+    private int firecount=0;
 
     private Music music;
 
@@ -104,7 +105,82 @@ public class PlayScreen implements Screen {
 
     }
 
+
     public void handleInput(float dt){
+
+        if(Gdx.input.isKeyPressed(Input.Keys.C)){
+            map = new TmxMapLoader().load("Stage-3.tmx"); //load the new map
+            renderer.getMap().dispose(); //dispose the old map
+            renderer.setMap(map); //set the map in your renderer
+
+
+        }
+
+
+        if(Gdx.input.isKeyPressed(Input.Keys.NUM_1)){
+            music.stop();
+            music = BattleCITYbygdx.manager.get("audio/music/TouhouV2.ogg", Music.class);
+            music.setLooping(true);
+            music.play();
+
+        }
+
+        if(Gdx.input.isKeyPressed(Input.Keys.NUM_2)){
+            music.stop();
+            music = BattleCITYbygdx.manager.get("audio/music/Mistery.ogg", Music.class);
+            music.setLooping(true);
+            music.play();
+
+        }
+
+        if(Gdx.input.isKeyPressed(Input.Keys.NUM_3)){
+            music.stop();
+            music = BattleCITYbygdx.manager.get("audio/music/FFXV.ogg", Music.class);
+            music.setLooping(true);
+            music.play();
+
+        }
+
+        if(Gdx.input.isKeyPressed(Input.Keys.NUM_4)){
+            music.stop();
+            music = BattleCITYbygdx.manager.get("audio/music/Bandicoot1.ogg", Music.class);
+            music.setLooping(true);
+            music.play();
+
+        }
+
+        if(Gdx.input.isKeyPressed(Input.Keys.NUM_5)){
+            music.stop();
+            music = BattleCITYbygdx.manager.get("audio/music/Bandicoot3.ogg", Music.class);
+            music.setLooping(true);
+            music.play();
+
+        }
+
+        if(Gdx.input.isKeyPressed(Input.Keys.NUM_6)){
+            music.stop();
+            music = BattleCITYbygdx.manager.get("audio/music/MetalSlug.ogg", Music.class);
+            music.setLooping(true);
+            music.play();
+
+        }
+
+        if(Gdx.input.isKeyPressed(Input.Keys.M)){
+            music.setVolume(0);
+
+        }
+        if(Gdx.input.isKeyPressed(Input.Keys.N)){
+            music.setVolume(100);
+
+        }
+        if(Gdx.input.isKeyPressed(Input.Keys.O)){
+            music.stop();
+        }
+        if(Gdx.input.isKeyPressed(Input.Keys.P)){
+            music.play();
+
+        }
+
         if(Gdx.input.isKeyPressed(Input.Keys.UP) && player.b2body.getLinearVelocity().y<=1){
             player.b2body.applyLinearImpulse(new Vector2(0,0.01f), player.b2body.getWorldCenter(), true);
             if(directiony >= 3){
@@ -147,14 +223,20 @@ public class PlayScreen implements Screen {
             }
         }else player.b2body.applyLinearImpulse(new Vector2(player.b2body.getLinearVelocity().x*(-0.02f),player.b2body.getLinearVelocity().y*(-0.02f)),player.b2body.getWorldCenter(),true);
 
+        if(Gdx.input.isKeyJustPressed(Input.Keys.R)){
+            firecount = 0;
+        }
+
         if(Gdx.input.isKeyJustPressed(Input.Keys.S)){  //shot bullet
-
-            b3 = new Bullet(world,player,directionx);
-            //   b3.b2body.applyLinearImpulse(new Vector2(directionx,directiony).add(player.b2body.getLinearVelocity().setLength(0.5f)), player.b2body.getWorldCenter(), true);
-            b3.b2body.applyLinearImpulse(new Vector2(player.b2body.getLinearVelocity().x,player.b2body.getLinearVelocity().y).setLength(2f), player.b2body.getWorldCenter(), true);
-            BattleCITYbygdx.manager.get("audio/sound/TankfireV2.wav", Sound.class).play();
-            player.b2body.applyLinearImpulse(new Vector2(player.b2body.getLinearVelocity().x*(-0.5f),player.b2body.getLinearVelocity().y*(-0.5f)),player.b2body.getWorldCenter(),true);
-
+            if(firecount <1) {
+                b3 = new Bullet(world, player, directionx);
+                //   b3.b2body.applyLinearImpulse(new Vector2(directionx,directiony).add(player.b2body.getLinearVelocity().setLength(0.5f)), player.b2body.getWorldCenter(), true);
+                b3.b2body.applyLinearImpulse(new Vector2(player.b2body.getLinearVelocity().x, player.b2body.getLinearVelocity().y).setLength(2f), player.b2body.getWorldCenter(), true);
+                //player.fire();
+                BattleCITYbygdx.manager.get("audio/sound/TankfireV2.wav", Sound.class).play();
+                player.b2body.applyLinearImpulse(new Vector2(player.b2body.getLinearVelocity().x * (-0.5f), player.b2body.getLinearVelocity().y * (-0.5f)), player.b2body.getWorldCenter(), true);
+                firecount++;
+            }
         }
     }
 
@@ -165,6 +247,8 @@ public class PlayScreen implements Screen {
 
         player.update(dt);
         aiTank.update(dt);
+        if(b3 != null)
+        b3.update(dt);
         gamecamera.update();
         renderer.setView(gamecamera);
 
