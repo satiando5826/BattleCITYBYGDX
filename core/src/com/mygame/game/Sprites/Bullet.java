@@ -85,7 +85,7 @@ public class Bullet extends Sprite{
             firecount = 0;
             System.out.println("reload");
         }
-            if (this.time <= stateTime - 60 * dt)
+            if (this.time <= stateTime - 50 * dt)
             {  if(firecount >0) {
                 firecount--;
                 world.destroyBody(b2body);
