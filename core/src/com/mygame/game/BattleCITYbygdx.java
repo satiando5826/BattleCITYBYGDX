@@ -32,6 +32,7 @@ public class BattleCITYbygdx extends Game {
 	public static final short object_BIT = 4;
 	public static final short enemy_body_BIT = 128;
 	public static final short enemy_body2_BIT = 128;
+	public String mapstring = "Stage-1.tmx";
 
 
 	public SpriteBatch batch;
@@ -53,7 +54,7 @@ public class BattleCITYbygdx extends Game {
 		manager.load("audio/sound/TankfireV2.wav", Sound.class);
 		manager.finishLoading();
 
-		setScreen(new PlayScreen(this));
+		setScreen(new PlayScreen(this,mapstring));
 	}
 
 	@Override

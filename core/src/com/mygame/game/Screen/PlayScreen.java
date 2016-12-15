@@ -18,6 +18,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.physics.box2d.utils.Box2DBuild;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mygame.game.BattleCITYbygdx;
@@ -53,8 +54,10 @@ public class PlayScreen implements Screen {
     private Bullet b3;
     private AiTank aiTank;
     private int firecount=0;
+    private Texture texture;
 
     private Music music;
+    public String mapstring = "Stage-1";
 
 
 
@@ -62,17 +65,16 @@ public class PlayScreen implements Screen {
     private float directiony = 0;
 
 
-    public PlayScreen(BattleCITYbygdx game){
+    public PlayScreen(BattleCITYbygdx game,String mapstring){
         atlas = new TextureAtlas("Tank.pack");
-
         this.game = game;
-        //texture = new Texture("badlogic.jpg");
+        texture = new Texture("NES - Battle City - General Sprites.png");
         gamecamera = new OrthographicCamera();
         gamePort = new FitViewport(BattleCITYbygdx.V_WIDTH / BattleCITYbygdx.PPM,BattleCITYbygdx.V_HEIGHT / BattleCITYbygdx.PPM,gamecamera);   //////type of view may be fix it later (3)
         hud = new HUD(game.batch);
 
         maploader = new TmxMapLoader();
-        map = maploader.load("Stage-1.tmx");
+        map = maploader.load(mapstring);
         renderer = new OrthogonalTiledMapRenderer(map, 1/ BattleCITYbygdx.PPM);
 
 
@@ -109,8 +111,8 @@ public class PlayScreen implements Screen {
     public void handleInput(float dt){
 
         if(Gdx.input.isKeyPressed(Input.Keys.C)){
-
-            game.setScreen(new PlayScreen((BattleCITYbygdx) game));
+            mapstring = "Stage-2.tmx";
+            game.setScreen(new PlayScreen((BattleCITYbygdx) game,mapstring));
 
 
         }
