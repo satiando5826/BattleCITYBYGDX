@@ -46,17 +46,6 @@ public class WorldContacListener implements ContactListener{
                //     Gdx.app.log("error","collision");
                //     ((Bullet)fixA.getUserData()).hitOnBody();
                // }
-        switch (cDef) {
-            case BattleCITYbygdx.bullet_BIT | BattleCITYbygdx.enemy_body_BIT:
-                if (fixA.getFilterData().categoryBits == BattleCITYbygdx.enemy_body_BIT) {
-                    ((Enemy) fixA.getUserData()).hitOnBody();
-                } else if (fixB.getFilterData().categoryBits == BattleCITYbygdx.enemy_BIT) {
-                    ((Enemy) fixB.getUserData()).hitOnBody();
-                }
-                /*else if (fixA.getFilterData().categoryBits == BattleCITYbygdx.brick_BIT){
-                    ((Enemy) fixB.getUserData()).reversVelocity(false,true);
-                }*/break;
-
 
             case BattleCITYbygdx.enemy_BIT | BattleCITYbygdx.brick_BIT:                  //ชนกับ brick ก่อนถึงเข้าเงื่อนไข
                 if (fixA.getFilterData().categoryBits == BattleCITYbygdx.enemy_BIT){
