@@ -78,6 +78,7 @@ public class AiTank extends Enemy {
                 BattleCITYbygdx.brick_BIT |
                 BattleCITYbygdx.enemy_BIT |
                 BattleCITYbygdx.OBJECT_BIT |
+                BattleCITYbygdx.bullet_BIT|
                 BattleCITYbygdx.metal_BIT;
 
 

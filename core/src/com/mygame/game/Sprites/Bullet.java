@@ -13,9 +13,7 @@ public class Bullet {           //Don't khow  this correct
     private float stateTime;
     private boolean setToDestroy;
     private boolean destroyed;
-    //
 
-    ////
     protected Fixture fixture;
 
     public Bullet(World world, Tank tank, float direction){
@@ -64,12 +62,15 @@ public class Bullet {           //Don't khow  this correct
     public void update(float dt){
         stateTime += dt;
         if (setToDestroy && !destroyed){
-            world.destroyBody(b2body);
+            //world.destroyBody(b2body);
+            b2body.setLinearVelocity(0,0);
             destroyed = true;
-            b2body.destroyFixture(fixture);
+            //b2body.destroyFixture(fixture);
         }
     }
     public void hitOnBody() {
-
+        setToDestroy = true;
+        b2body.setLinearVelocity(0,0);
     }
+
 }

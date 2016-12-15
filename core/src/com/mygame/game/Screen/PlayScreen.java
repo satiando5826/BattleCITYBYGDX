@@ -152,6 +152,7 @@ public class PlayScreen implements Screen {
             b3 = new Bullet(world,player,directionx);
             //   b3.b2body.applyLinearImpulse(new Vector2(directionx,directiony).add(player.b2body.getLinearVelocity().setLength(0.5f)), player.b2body.getWorldCenter(), true);
             b3.b2body.applyLinearImpulse(new Vector2(player.b2body.getLinearVelocity().x,player.b2body.getLinearVelocity().y).setLength(2f), player.b2body.getWorldCenter(), true);
+            //player.fire();
             BattleCITYbygdx.manager.get("audio/sound/TankfireV2.wav", Sound.class).play();
             player.b2body.applyLinearImpulse(new Vector2(player.b2body.getLinearVelocity().x*(-0.5f),player.b2body.getLinearVelocity().y*(-0.5f)),player.b2body.getWorldCenter(),true);
 

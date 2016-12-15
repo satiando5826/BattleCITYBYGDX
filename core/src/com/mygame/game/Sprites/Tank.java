@@ -1,6 +1,7 @@
 package com.mygame.game.Sprites;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.physics.box2d.*;
@@ -25,6 +26,8 @@ public class Tank extends Sprite{
     private Animation tankleft;
     private Animation tankright;
     private float stateTime;
+    //private Array<cannonball> cannonballs;
+    private PlayScreen screen;
 
     protected Fixture fixture;
 
@@ -60,11 +63,18 @@ public class Tank extends Sprite{
         tank = new TextureRegion(getTexture(),91,38,16,16);
         setBounds(91,38,16/BattleCITYbygdx.PPM,16/BattleCITYbygdx.PPM);
         setRegion(tank);
+//        cannonballs = new Array<cannonball>();
     }
     public void update(float dt){
         stateTime += dt;
         setPosition(b2body.getPosition().x - getWidth()/2,b2body.getPosition().y - getHeight()/2);
         setRegion(getFrame(dt));
+
+    //    for(cannonball  ball : cannonballs) {
+     //       ball.update(dt);
+     //       if(ball.isDestroyed())
+     //           cannonballs.removeValue(ball, true);
+     //   }
     }
 
     public TextureRegion getFrame(float dt){
@@ -137,4 +147,13 @@ public class Tank extends Sprite{
                 tk.getImage("PngFile/TankTestWhite.png")
         };
     }
+  //  public void fire(){
+  //      cannonballs.add(new cannonball(screen, b2body.getPosition().x, b2body.getPosition().y,this));
+   // }
+  //  public void draw(Batch batch){
+  //      super.draw(batch);
+  //      for(cannonball ball : cannonballs)
+  //          ball.draw(batch);
+  //  }
+
 }
