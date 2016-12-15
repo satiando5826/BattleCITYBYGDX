@@ -8,6 +8,7 @@ import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
 import com.mygame.game.BattleCITYbygdx;
 import com.mygame.game.Screen.PlayScreen;
+import com.mygame.game.Sprites.Bullet;
 
 import java.awt.*;
 

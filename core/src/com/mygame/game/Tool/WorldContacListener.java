@@ -3,6 +3,7 @@ package com.mygame.game.Tool;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.physics.box2d.*;
 import com.mygame.game.BattleCITYbygdx;
+import com.mygame.game.Sprites.Bullet;
 import com.mygame.game.Sprites.Enemy;
 import com.mygame.game.Sprites.InteractiveTileObject;
 
@@ -28,27 +29,45 @@ public class WorldContacListener implements ContactListener{
         switch (cDef){
             case BattleCITYbygdx.enemy_body_BIT | BattleCITYbygdx.bullet_BIT:
                 if (fixA.getFilterData().categoryBits == BattleCITYbygdx.enemy_body_BIT){
+                    Gdx.app.log("A","collision");
                     ((Enemy)fixA.getUserData()).hitOnBody();
+                    Gdx.app.log("aa","collision");
+                    //((Bullet)fixB.getUserData()).hitOnBody();
+                    Gdx.app.log("aaa","collision");
 
                 }else if (fixB.getFilterData().categoryBits == BattleCITYbygdx.enemy_BIT){
+                    Gdx.app.log("B","collision");
                     ((Enemy)fixB.getUserData()).hitOnBody();
-            }
+                 //   ((Bullet)fixA.getUserData()).hitOnBody();
+                }
+               // else {
+               //     Gdx.app.log("error","collision");
+               //     ((Bullet)fixA.getUserData()).hitOnBody();
+               // }
         }
 
     }
 
     @Override
     public void endContact(Contact contact) {
-        /*Fixture fixA = contact.getFixtureA();
+     /*   Fixture fixA = contact.getFixtureA();
         Fixture fixB = contact.getFixtureB();
 
-        if (fixA.getFilterData().categoryBits == BattleCITYbygdx.bullet_BIT){
-            ((Enemy)fixA.getUserData()).hitOnBody();
+        int cDef = fixA.getFilterData().categoryBits | fixB.getFilterData().categoryBits;
+        Gdx.app.log("ee","collision");
+        switch (cDef) {
+            case BattleCITYbygdx.enemy_body_BIT | BattleCITYbygdx.bullet_BIT:
+                if (fixA.getFilterData().categoryBits == BattleCITYbygdx.enemy_body_BIT) {
+                    if (fixB.getFilterData().categoryBits == BattleCITYbygdx.bullet_BIT) {
+                        Gdx.app.log("fixB","collision");
+                        ((Bullet) fixB.getUserData()).hitOnBody();
 
-        }else if (fixB.getFilterData().categoryBits == BattleCITYbygdx.bullet_BIT){
-            ((Enemy)fixB.getUserData()).hitOnBody();
-        }
-        */
+                    } else if (fixB.getFilterData().categoryBits == BattleCITYbygdx.bullet_BIT) {
+                        ((Bullet) fixB.getUserData()).hitOnBody();
+                    }
+                }
+
+        }*/
     }
 
     @Override
