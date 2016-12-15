@@ -19,6 +19,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.physics.box2d.utils.Box2DBuild;
 import com.badlogic.gdx.utils.FloatArray;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mygame.game.BattleCITYbygdx;
@@ -40,6 +41,7 @@ public class PlayScreen implements Screen {
     private OrthographicCamera gamecamera;
     private Viewport gamePort;
     private HUD hud;
+    public boolean intro=true;
 
     private TmxMapLoader maploader;
     private TiledMap map;
@@ -56,24 +58,25 @@ public class PlayScreen implements Screen {
     private int firecount=0;
 
     private Music music;
+    public String mapstring = "Stage-1";
 
-
+    public Texture texture;
 
     private float directionx = 0;  //from last direction input or may be used from vector of tank
     private float directiony = 0;
 
 
-    public PlayScreen(BattleCITYbygdx game){
+    public PlayScreen(BattleCITYbygdx game,String mapstring){
         atlas = new TextureAtlas("Tank.pack");
-
         this.game = game;
-        //texture = new Texture("badlogic.jpg");
+
+        texture = new Texture("NES - Battle City - General Sprites.png");
         gamecamera = new OrthographicCamera();
         gamePort = new FitViewport(BattleCITYbygdx.V_WIDTH / BattleCITYbygdx.PPM,BattleCITYbygdx.V_HEIGHT / BattleCITYbygdx.PPM,gamecamera);   //////type of view may be fix it later (3)
         hud = new HUD(game.batch);
 
         maploader = new TmxMapLoader();
-        map = maploader.load("Stage-1.tmx");
+        map = maploader.load(mapstring);
         renderer = new OrthogonalTiledMapRenderer(map, 1/ BattleCITYbygdx.PPM);
 
 
@@ -91,7 +94,7 @@ public class PlayScreen implements Screen {
 
         music = BattleCITYbygdx.manager.get("audio/music/TouhouV2.ogg", Music.class);
         music.setLooping(true);
-        music.play();
+        //        music.play();
 
         aiTank = new AiTank(this,.32f,.32f);
     }
@@ -110,12 +113,16 @@ public class PlayScreen implements Screen {
     public void handleInput(float dt){
 
         if(Gdx.input.isKeyPressed(Input.Keys.C)){
-
-            game.setScreen(new PlayScreen((BattleCITYbygdx) game));
-
+            music.stop();
+            mapstring = "Stage-2.tmx";
+            game.setScreen(new PlayScreen((BattleCITYbygdx) game,mapstring));
 
         }
 
+        if(Gdx.input.isKeyPressed(Input.Keys.SPACE)){
+            intro = false;
+            music.play();
+        }
 
         if(Gdx.input.isKeyPressed(Input.Keys.NUM_1)){
             music.stop();
@@ -272,8 +279,12 @@ public class PlayScreen implements Screen {
 
         game.batch.setProjectionMatrix(gamecamera.combined);
         game.batch.begin();
-        player.draw(game.batch);
-        aiTank.draw(game.batch);
+        if(intro){
+            game.batch.draw(texture,0,0,800/BattleCITYbygdx.PPM,600/BattleCITYbygdx.PPM);
+        }else {
+            player.draw(game.batch);
+            aiTank.draw(game.batch);
+        }
         game.batch.end();
 
         game.batch.setProjectionMatrix(hud.Stage.getCamera().combined);
