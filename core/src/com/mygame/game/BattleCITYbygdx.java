@@ -17,22 +17,19 @@ public class BattleCITYbygdx extends Game {
 	public static	final  float PPM = 100;
 
 	public static final short DEFAULT_BIT = 1;
-	public static final short tank_BIT = 4;
+	public static final short tank_BIT = 2;
 	public static final short bullet_BIT = 4;
-	public static final short brick_BIT = 4;
-	public static final short metal_BIT = 8;
-	public static final short DESTROYED_BIT = 16;
-	public static final short OBJECT_BIT = 32;
-	public static final short enemy_BIT = 64;
-	public static final short forest_BIT= 4;
-	public static final short water_BIT = 4;
-	public static final short base_BIT = 4;
-	public static final short frame_BIT = 4;
-	public static final short cannonball_BIT = 2;
-	public static final short object_BIT = 4;
-	public static final short enemy_body_BIT = 128;
-	public static final short enemy_body2_BIT = 128;
-	public String mapstring = "Stage-1.tmx";
+	public static final short brick_BIT = 8;
+	public static final short metal_BIT = 16;
+	public static final short DESTROYED_BIT = 32;
+	public static final short OBJECT_BIT = 64;
+	public static final short enemy_BIT = 128;
+	public static final short forest_BIT= 256;
+	public static final short water_BIT = 512;
+	public static final short base_BIT = 1024;
+	public static final short frame_BIT = 2048;
+	public static final short enemy_body_BIT = 4096;
+		public String mapstring = "Stage-1.tmx";
 
 
 	public SpriteBatch batch;

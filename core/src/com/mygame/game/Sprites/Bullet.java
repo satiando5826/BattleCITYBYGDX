@@ -51,6 +51,8 @@ public class Bullet extends Sprite{           //Don't khow  this correct
                 BattleCITYbygdx.water_BIT |
                 BattleCITYbygdx.enemy_BIT |
                 BattleCITYbygdx.bullet_BIT|
+                BattleCITYbygdx.frame_BIT|
+                BattleCITYbygdx.base_BIT |
                 BattleCITYbygdx.enemy_body_BIT;
 
         fdef.shape = shape;
