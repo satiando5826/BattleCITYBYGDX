@@ -62,7 +62,7 @@ public class WorldContacListener implements ContactListener{
                // }
                 //break;                                                                //ใส่ break แล้วไม่เด้ง
 
-            case BattleCITYbygdx.enemy_BIT | BattleCITYbygdx.object_BIT:                  //ชนกับ brick ก่อนถึงเข้าเงื่อนไข
+            case BattleCITYbygdx.enemy_BIT | BattleCITYbygdx.brick_BIT:                  //ชนกับ brick ก่อนถึงเข้าเงื่อนไข
                 if (fixA.getFilterData().categoryBits == BattleCITYbygdx.enemy_BIT){
                     ((Enemy)fixA.getUserData()).reversVelocity(true,false);
                     Gdx.app.log("A","enemy");
