@@ -34,7 +34,7 @@ public class B2WorldCreator {
         for(MapObject object : map.getLayers().get(6).getObjects().getByType(RectangleMapObject.class)){
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
-            new forest(screen,rect);
+          //  new forest(screen,rect);
         }
 
         //water
