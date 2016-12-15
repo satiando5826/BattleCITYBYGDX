@@ -71,7 +71,7 @@ public class PlayScreen implements Screen {
         hud = new HUD(game.batch);
 
         maploader = new TmxMapLoader();
-        map = maploader.load("Stage-1.tmx");
+        map = maploader.load("Stage-3.tmx");
         renderer = new OrthogonalTiledMapRenderer(map, 1/ BattleCITYbygdx.PPM);
 
 
@@ -147,7 +147,8 @@ public class PlayScreen implements Screen {
             }
         }else player.b2body.applyLinearImpulse(new Vector2(player.b2body.getLinearVelocity().x*(-0.02f),player.b2body.getLinearVelocity().y*(-0.02f)),player.b2body.getWorldCenter(),true);
 
-        if(Gdx.input.isKeyJustPressed(Input.Keys.S)){  //shot bullet
+        if(Gdx.input.isKeyJustPressed(Input.Keys.S)||Gdx.input.isKeyJustPressed(Input.Keys.J)
+                ||Gdx.input.isKeyJustPressed(Input.Keys.K) || Gdx.input.isKeyJustPressed(Input.Keys.L)){  //shot bullet
 
             b3 = new Bullet(world,player,directionx);
             //   b3.b2body.applyLinearImpulse(new Vector2(directionx,directiony).add(player.b2body.getLinearVelocity().setLength(0.5f)), player.b2body.getWorldCenter(), true);
