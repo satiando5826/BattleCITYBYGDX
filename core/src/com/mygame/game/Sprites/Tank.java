@@ -29,6 +29,7 @@ public class Tank extends Sprite{
     private float stateTime;
     //private Array<cannonball> cannonballs;
     private PlayScreen screen;
+    public boolean dead;
 
     protected Fixture fixture;
 
@@ -128,7 +129,8 @@ public class Tank extends Sprite{
                 BattleCITYbygdx.DEFAULT_BIT |
                 BattleCITYbygdx.brick_BIT |
                 //BattleCITYbygdx.enemy_body_BIT |              //fix tank each other not die
-                BattleCITYbygdx.enemy_BIT |                     //fix don't touch enemy
+                BattleCITYbygdx.enemy_BIT |//fix don't touch enemy
+                BattleCITYbygdx.frame_BIT|
                 BattleCITYbygdx.metal_BIT;
         fdef.shape = shape;
         b2body.createFixture(fdef).setUserData(this);
@@ -156,5 +158,8 @@ public class Tank extends Sprite{
   //      for(cannonball ball : cannonballs)
   //          ball.draw(batch);
   //  }
+    public void hit(){
+        dead = true;
+    }
 
 }
