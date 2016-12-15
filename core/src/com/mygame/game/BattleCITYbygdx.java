@@ -43,6 +43,12 @@ public class BattleCITYbygdx extends Game {
 		batch = new SpriteBatch();
 		manager = new AssetManager();
 		manager.load("audio/music/TouhouV2.ogg", Music.class);
+		manager.load("audio/music/FFXV.ogg", Music.class);
+		manager.load("audio/music/Bandicoot1.ogg", Music.class);
+		manager.load("audio/music/Bandicoot3.ogg", Music.class);
+		manager.load("audio/music/MetalSlug.ogg", Music.class);
+		manager.load("audio/music/Mistery.ogg", Music.class);
+
 		manager.load("audio/sound/TankfireV2.wav", Sound.class);
 		manager.finishLoading();
 

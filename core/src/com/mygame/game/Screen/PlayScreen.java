@@ -71,7 +71,7 @@ public class PlayScreen implements Screen {
         hud = new HUD(game.batch);
 
         maploader = new TmxMapLoader();
-        map = maploader.load("Stage-3.tmx");
+        map = maploader.load("Stage-2.tmx");
         renderer = new OrthogonalTiledMapRenderer(map, 1/ BattleCITYbygdx.PPM);
 
 
@@ -104,7 +104,82 @@ public class PlayScreen implements Screen {
 
     }
 
+
     public void handleInput(float dt){
+
+        if(Gdx.input.isKeyPressed(Input.Keys.C)){
+            map = new TmxMapLoader().load("Stage-3.tmx"); //load the new map
+            renderer.getMap().dispose(); //dispose the old map
+            renderer.setMap(map); //set the map in your renderer
+
+
+        }
+
+
+        if(Gdx.input.isKeyPressed(Input.Keys.NUM_1)){
+            music.stop();
+            music = BattleCITYbygdx.manager.get("audio/music/TouhouV2.ogg", Music.class);
+            music.setLooping(true);
+            music.play();
+
+        }
+
+        if(Gdx.input.isKeyPressed(Input.Keys.NUM_2)){
+            music.stop();
+            music = BattleCITYbygdx.manager.get("audio/music/Mistery.ogg", Music.class);
+            music.setLooping(true);
+            music.play();
+
+        }
+
+        if(Gdx.input.isKeyPressed(Input.Keys.NUM_3)){
+            music.stop();
+            music = BattleCITYbygdx.manager.get("audio/music/FFXV.ogg", Music.class);
+            music.setLooping(true);
+            music.play();
+
+        }
+
+        if(Gdx.input.isKeyPressed(Input.Keys.NUM_4)){
+            music.stop();
+            music = BattleCITYbygdx.manager.get("audio/music/Bandicoot1.ogg", Music.class);
+            music.setLooping(true);
+            music.play();
+
+        }
+
+        if(Gdx.input.isKeyPressed(Input.Keys.NUM_5)){
+            music.stop();
+            music = BattleCITYbygdx.manager.get("audio/music/Bandicoot3.ogg", Music.class);
+            music.setLooping(true);
+            music.play();
+
+        }
+
+        if(Gdx.input.isKeyPressed(Input.Keys.NUM_6)){
+            music.stop();
+            music = BattleCITYbygdx.manager.get("audio/music/MetalSlug.ogg", Music.class);
+            music.setLooping(true);
+            music.play();
+
+        }
+
+        if(Gdx.input.isKeyPressed(Input.Keys.M)){
+            music.setVolume(0);
+
+        }
+        if(Gdx.input.isKeyPressed(Input.Keys.N)){
+            music.setVolume(100);
+
+        }
+        if(Gdx.input.isKeyPressed(Input.Keys.O)){
+            music.stop();
+        }
+        if(Gdx.input.isKeyPressed(Input.Keys.P)){
+            music.play();
+
+        }
+
         if(Gdx.input.isKeyPressed(Input.Keys.UP) && player.b2body.getLinearVelocity().y<=1){
             player.b2body.applyLinearImpulse(new Vector2(0,0.01f), player.b2body.getWorldCenter(), true);
             if(directiony >= 3){
