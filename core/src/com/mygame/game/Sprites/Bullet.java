@@ -12,7 +12,7 @@ import com.mygame.game.Screen.PlayScreen;
 /**
  * Created by Aspire on 9/12/2559.
  */
-public class Bullet extends Sprite{           //Don't khow  this correct
+public class Bullet extends Sprite{
     public World world;
     public Body b2body;
     private float stateTime;

@@ -12,8 +12,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.mygame.game.Screen.PlayScreen;
 
 public class BattleCITYbygdx extends Game {
-	public static	final  int V_WIDTH = 366;
-	public static	final  int V_HEIGHT = 430;
+	public static	final  int V_WIDTH = 320;
+	public static	final  int V_HEIGHT = 360;
 	public static	final  float PPM = 100;
 
 	public static final short DEFAULT_BIT = 1;
@@ -47,7 +47,6 @@ public class BattleCITYbygdx extends Game {
 		manager.load("audio/music/Bandicoot3.ogg", Music.class);
 		manager.load("audio/music/MetalSlug.ogg", Music.class);
 		manager.load("audio/music/Mistery.ogg", Music.class);
-
 		manager.load("audio/sound/TankfireV2.wav", Sound.class);
 		manager.finishLoading();
 

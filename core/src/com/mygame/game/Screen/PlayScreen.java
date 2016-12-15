@@ -72,7 +72,7 @@ public class PlayScreen implements Screen {
         atlas = new TextureAtlas("tankv2.pack");
         this.game = game;
 
-        texture = new Texture("NES - Battle City - General Sprites.png");
+        texture = new Texture("Intro.png");
         gamecamera = new OrthographicCamera();
         gamePort = new FitViewport(BattleCITYbygdx.V_WIDTH / BattleCITYbygdx.PPM,BattleCITYbygdx.V_HEIGHT / BattleCITYbygdx.PPM,gamecamera);   //////type of view may be fix it later (3)
         hud = new HUD(game.batch);
@@ -236,7 +236,7 @@ public class PlayScreen implements Screen {
             firecount = 0;
         }
 
-        if(Gdx.input.isKeyJustPressed(Input.Keys.S)){  //shot bullet
+        if(Gdx.input.isKeyJustPressed(Input.Keys.E)){  //shot bullet
             if(firecount <1) {
                 b3 = new Bullet(this, player, directionx);
                 //   b3.b2body.applyLinearImpulse(new Vector2(directionx,directiony).add(player.b2body.getLinearVelocity().setLength(0.5f)), player.b2body.getWorldCenter(), true);
@@ -280,7 +280,7 @@ public class PlayScreen implements Screen {
         game.batch.setProjectionMatrix(gamecamera.combined);
         game.batch.begin();
         if(intro){
-            game.batch.draw(texture,0,0,800/BattleCITYbygdx.PPM,600/BattleCITYbygdx.PPM);
+            game.batch.draw(texture,0,0,BattleCITYbygdx.V_WIDTH/BattleCITYbygdx.PPM,BattleCITYbygdx.V_HEIGHT/BattleCITYbygdx.PPM);
         }else {
             player.draw(game.batch);
             //aiTank.draw(game.batch);
