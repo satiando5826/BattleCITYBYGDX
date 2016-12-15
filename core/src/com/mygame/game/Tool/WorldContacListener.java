@@ -56,24 +56,41 @@ public class WorldContacListener implements ContactListener{
                 if(fixA.getFilterData().categoryBits == base_BIT)
                     ((Base)fixA.getUserData()).onBullethit();
                 else ((Base)fixB.getUserData()).onBullethit();
-               // else {
-               //     Gdx.app.log("error","collision");
-               //     ((Bullet)fixA.getUserData()).hitOnBody();
-               // }
+
                 //break;                                                                //ใส่ break แล้วไม่เด้ง
 
-            case BattleCITYbygdx.enemy_BIT | BattleCITYbygdx.brick_BIT:                  //ชนกับ brick ก่อนถึงเข้าเงื่อนไข
-                if (fixA.getFilterData().categoryBits == BattleCITYbygdx.enemy_BIT){
+            case BattleCITYbygdx.enemy_body_BIT | BattleCITYbygdx.brick_BIT:                  //ชนกับ brick ก่อนถึงเข้าเงื่อนไข
+                if (fixA.getFilterData().categoryBits == BattleCITYbygdx.enemy_body_BIT){
                     ((Enemy)fixA.getUserData()).reversVelocity(true,false);
                     Gdx.app.log("A","enemy");
 
-
                 }else{
-
                     ((Enemy) fixB.getUserData()).reversVelocity(true, false);
-                    //Gdx.app.log("B","brick");
+                    Gdx.app.log("B","brick");
                     break;
                 }
+            case BattleCITYbygdx.enemy_body_BIT | BattleCITYbygdx.tank_BIT:
+                if (fixA.getFilterData().categoryBits == BattleCITYbygdx.enemy_body_BIT){
+                    ((Enemy)fixA.getUserData()).reversVelocity(true,false);
+                    Gdx.app.log("A","hit tank");
+                    break;
+                }else{
+                    ((Enemy) fixB.getUserData()).reversVelocity(true, false);
+                    Gdx.app.log("B","hit tank");
+                    break;
+                }
+            case BattleCITYbygdx.enemy_body_BIT | BattleCITYbygdx.water_BIT:
+                if (fixA.getFilterData().categoryBits == BattleCITYbygdx.enemy_body_BIT){
+                    ((Enemy)fixA.getUserData()).reversVelocity(true,false);
+                    Gdx.app.log("A","hit water");
+                    break;
+                }else{
+                    ((Enemy) fixB.getUserData()).reversVelocity(true, false);
+                    Gdx.app.log("B","hit water");
+                    break;
+                }
+
+
 
 
         }
